@@ -48,7 +48,7 @@ class viewController extends Controller
 
         return view('Admin.show.dashboard', compact('Companies', 'majors', 'users', 'admins', 'RequestCompanies', 'positions', 'applications'));
     }
-    public function users()
+    public function users(Request $request)
     {
         if (!(Auth::check())) {
             return redirect('/login')->with('info', 'Login first!');
@@ -56,10 +56,23 @@ class viewController extends Controller
         if (Auth::user()->type != 'admin') {
             return view('public.403');
         }
+        $userTypes = ['All', 'user', 'admin', 'company', 'RequestCompany'];
+        $directions = ['asc', 'desc'];
 
-        $users = User::all();
-        // $users->appends($request->all());
-        return view('Admin.show.users', compact('users'));
+        $search = [['type', 'like', '%']];
+        $order = 'asc';
+        if (($request->direction) && $request->direction != '') {
+            $order = $request->direction;
+        }
+        if (($request->type) && $request->type != 'All') {
+            $search[0] = ['users.type', 'like', "$request->type"];
+        }
+
+        $users = DB::table('users')
+            ->where($search)
+            ->orderBy('created_at', $order)->get();
+
+        return view('admin.show.users', compact('users', 'directions', 'userTypes'));
     }
     public function testimonials()
     {

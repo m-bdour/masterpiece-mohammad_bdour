@@ -66,6 +66,27 @@
     justify-content: center;
 }
 
+.flexBetweenToBlock {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between;
+}
+
+.icon-material-outline-supervisor-account {
+    .flexStart {
+        text-align: center !important;
+        align-items: center;
+
+        p {
+            margin: 0 !important;
+        }
+
+        .col-xl-3 {
+            margin: 5px !important;
+        }
+    }
+}
+
 
 .flexStart {
     display: flex !important;
@@ -218,6 +239,7 @@ input[type=number] {
         align-items: initial;
         justify-content: initial;
     }
+
 
     .flexbetweenToBlock {
         display: block !important;

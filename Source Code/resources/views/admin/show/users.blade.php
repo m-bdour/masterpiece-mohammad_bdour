@@ -47,31 +47,44 @@
 				<!-- Headline -->
 				<div class="headline flexbetweenToBlock">
 					<h3><i class="icon-material-outline-supervisor-account"></i> <span class="counter">{{count($users)}}</span> users</h3>
+
+					<form action="/admin/users" method="get" id="SortBy">
 					<div class="flexCenterToBlock" >
-						<p class="phoneMargainTop15">Sort:</p>
-						<div class="col-xl-6">
-							<div class="submit-field">
-								<select class="selectpicker with-border" name="device" data-size="5" title="Select a device">
-									<option disabled selected value='select device'>select a device</option>
-									<option value="Phone">Phone</option>
-									<option value="Tablet">Tablet</option>
-									<option value="Desktop computer">Desktop computer</option>
-									<option value="Laptop">Laptop</option>
-								</select>
-							</div>
-						</div>						
-						<div class="col-xl-6">
-							<div class="submit-field">
-								<select class="selectpicker with-border" name="device" data-size="5" title="Select a device">
-									<option disabled selected value='select device'>select a device</option>
-									<option value="Phone">Phone</option>
-									<option value="Tablet">Tablet</option>
-									<option value="Desktop computer">Desktop computer</option>
-									<option value="Laptop">Laptop</option>
-								</select>
-							</div>
-						</div>						
+						<p class="phoneMargainTop15">  Sorted:  </p>
+
+						<select class="selectpicker with-border margin-left-5 margin-right-5 margin-bottom-10 InstantSubmit " name="type" data-size="5" title="User type">
+							@if (request()->get('type') != '' && request()->get('type') != null)
+								@foreach ($userTypes as $userType)
+									@if (request()->get('type')  == $userType)
+										<option selected value="{{"$userType"}}">{{"$userType"}}</option>
+									@else
+										<option value="{{"$userType"}}">{{"$userType"}}</option>
+									@endif
+								@endforeach
+							@else
+								@foreach ($userTypes as $userType)
+									<option value="{{"$userType"}}">{{"$userType"}}</option>
+								@endforeach
+							@endif
+						</select>
+
+						<select class="selectpicker with-border margin-left-5 margin-right-5 margin-bottom-10 InstantSubmit " name="direction" data-size="5" title="Direction">
+							@if (request()->get('direction') != '' && request()->get('direction') != null)
+								@foreach ($directions as $direction)
+									@if (request()->get('direction')  == $direction)
+										<option selected value="{{"$direction"}}">{{"$direction"}}</option>
+									@else
+										<option value="{{"$direction"}}">{{"$direction"}}</option>
+									@endif
+								@endforeach
+							@else
+								@foreach ($directions as $direction)
+									<option value="{{"$direction"}}">{{"$direction"}}</option>
+								@endforeach
+							@endif
+						</select>
 					</div>
+				</form>
 					<div class="flexCenterToBlock" >
 						<p class="phoneMargainTop15">Search:</p>
 						<input type="text" class="margin-left-5 margin-right-5 nameSearch" placeholder="by name">
@@ -142,6 +155,25 @@
 							</li>
 							@endforeach
 
+							@if (count($users) <1)
+
+							<li class="Element">
+								<!-- Overview -->
+								<div class="freelancer-overview manage-candidates">
+									<div class="freelancer-overview-inner">
+
+										<!-- Name -->
+										<div class="freelancer-name" style="text-align: center" >
+											<p style="font-size: 2rem">No users</p>
+											<span>Please search again!</span> 
+
+										</div>
+									</div>
+								</div>
+							</li>
+								
+							@endif
+
 						</ul>
 
 					</div>
@@ -155,6 +187,11 @@
 <!-- Dashboard Content / End -->
 
 <script>
+
+	$(".InstantSubmit").on('change' , function() {
+		$("#SortBy").submit();
+	})
+
 
 	//search script
 	$( ".nameSearch" ).keyup(function() {
