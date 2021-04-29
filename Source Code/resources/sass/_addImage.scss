@@ -1,0 +1,123 @@
+.addImage {
+
+    margin: 2rem 0;
+
+    p {
+        text-align: center;
+        margin-top: 0.6rem;
+    }
+
+    .removeProfile {
+        color: #de5959;
+        cursor: pointer;
+    }
+
+    // ----- Personal preference -----
+    *,
+    *:before,
+    *:after {
+        box-sizing: border-box;
+    }
+
+    // ----- Variable Declarations -----
+    @keyframes spin {
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    .mediaFile {
+        position: absolute;
+        top: -1000px;
+        opacity: 0;
+
+    }
+
+    .image {
+        border-radius: 100%;
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+        position: relative;
+        cursor: pointer;
+        background: #f4f4f4;
+        display: table;
+        background-size: cover;
+        background-position: center center;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+
+        .dashes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 100%;
+            width: 100%;
+            height: 100%;
+            border: 1px solid #ddd;
+            opacity: 0.7;
+        }
+
+        label {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+            padding: 0 30px;
+            color: grey;
+            opacity: 1;
+        }
+
+        &.dragging {
+            background-image: none !important;
+
+            .dashes {
+                animation-duration: 10s;
+                animation-name: spin;
+                animation-iteration-count: infinite;
+                animation-timing-function: linear;
+                opacity: 1 !important;
+            }
+
+            label {
+                opacity: 0.5 !important;
+            }
+        }
+
+        &.hasImage {
+
+            .dashes,
+            label {
+                opacity: 0;
+                pointer-events: none;
+                user-select: none;
+            }
+        }
+    }
+
+    #cover {
+        border-radius: 4px;
+        width: 200px;
+        height: 100px;
+
+        .dashes {
+            border-radius: 4px;
+        }
+    }
+
+    #cover2 {
+        border-radius: 4px;
+        width: 200px;
+        height: 100px;
+
+        .dashes {
+            border-radius: 4px;
+        }
+    }
+
+    // ----- Mobile styles -----
+    @media only screen and (max-device-width: 736px) {}
+
+}
