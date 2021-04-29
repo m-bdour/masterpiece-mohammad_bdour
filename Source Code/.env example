@@ -1,6 +1,6 @@
 APP_NAME=Qorrah
 APP_ENV=local
-APP_KEY=base64:+R0jwF+N5mvL2tv7TTnuKfuOHoTPioGCscLWy9jLFJM=
+APP_KEY=base64:
 APP_DEBUG=true
 APP_URL=http://localhost
 

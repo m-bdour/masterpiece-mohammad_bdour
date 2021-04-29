@@ -1,61 +1,87 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://res.cloudinary.com/dcptkluic/image/upload/v1619727879/TADREEB/logo_qa70zq.png" width="400"></a></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+<h2 align="center">
+ Qorrah For specialized training
+</h2>
 
-## About Laravel
+## About Qorrah
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Qorrah is a website that serves as a platform dedicated to provide a
+link between students who are looking for specialized training in their
+field of expertise or their studies with companies and institutions that
+have training vacancies
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+The website will be the first reference for anyone who is about to
+graduate from the university, because Qorrah contains all the university
+training that is compatible with the conditions of university training in
+each major and students can apply for them on the website.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Also, any person who wants a Specialized training in his major.
+Because it contains all training from institutions that have vacancies as
+full-time, part-time, paid or not-paid training, where the job description
+and the required qualifications are displayed in each vacancy and
+whoever sees himself suitable for it can submit an application directly on
+the site.
 
-## Learning Laravel
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+###  Start 
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+#### Install dependencies
 
-## Laravel Sponsors
+```bash
+# clone the repo
+$ git clone https://github.com/mhmdbdour/masterpiece-mohammad_bdour.git Qorrah
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+# go into app's directory
+$ cd Qorrah/Source%20Code
 
-### Premium Partners
+# install app's dependencies
+$ composer install
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[OP.GG](https://op.gg)**
+# install app's dependencies
+$ npm i
+```
 
-## Contributing
+#### Setup MySQL DataBase
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+1. Install MySQL
+2. Create database (this way or another)
+``` bash
+$ mysql -uroot -p
+mysql> create database laravel;
+```
+Create a user with privileges to the laravel database (root user may not work while it requires a sudo)
 
-## Code of Conduct
+3. Update .env file
+Copy file ".env.example", and change its name to ".env".
+Then in file ".env" complete database configuration:
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=onepiece
+DB_USERNAME=root
+DB_PASSWORD=
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Next step
 
-## Security Vulnerabilities
+``` bash
+# in your app directory
+# generate laravel APP_KEY
+$ php artisan key:generate
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+# run database migration 
+$ php artisan migrate:refresh 
 
-## License
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Usage
+
+``` bash
+# start local server
+$ php artisan serve
+
+```
+
+Open your browser with address: [localhost:8000](localhost:8000)  
