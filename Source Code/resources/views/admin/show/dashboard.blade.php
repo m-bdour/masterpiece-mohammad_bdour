@@ -1,7 +1,8 @@
 @extends('layout.admin')
 @section("title")
 <title>Qorrah | Dashboard</title>
-<meta name="description" content="Online Appointments Registeration system for book driving lessons">
+<meta name="description" content="a platform that provides the link between students who are looking for specialized training
+ with institutions that have training vacancies">
 @endsection
 @section('adminContent')
 
@@ -15,7 +16,7 @@
 			
 			<!-- Dashboard Headline -->
 			<div class="dashboard-headline">
-				<h3>Howdy, Tom!</h3>
+				<h3>Howdy, {{Auth::user()->name}} </h3>
 				<span>We are glad to see you again!</span>
 
 				<!-- Breadcrumbs -->

@@ -5826,6 +5826,7 @@ screen and (-ms-high-contrast: none) {
 .freelancer-overview .freelancer-avatar img {
     width: 100%;
     cursor: pointer;
+    border-radius: 50%;
 }
 
 .freelancer-overview .freelancer-avatar .verified-badge {
@@ -15365,6 +15366,7 @@ ul.dashboard-box-list>li:hover {
 .dashboard-box .freelancer-overview .freelancer-avatar {
     margin: 0;
     width: 90px;
+    height: 90px;
 }
 
 .dashboard-box .freelancer-overview.manage-candidates .freelancer-avatar {

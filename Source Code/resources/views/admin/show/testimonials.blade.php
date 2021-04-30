@@ -1,18 +1,19 @@
 @extends('layout.admin')
 @section("title")
 <title>Qorrah | Testimonials</title>
-<meta name="description" content="Online Appointments Registeration system for book driving lessons">
+<meta name="description" content="a platform that provides the link between students who are looking for specialized training
+ with institutions that have training vacancies">
 
 <style>
-	.freelancer-overview .freelancer-avatar {
-		width: 50px;
-		height: 50px;
-	}
+.freelancer-overview .freelancer-avatar {
+    width: 90px !important;
+    height: 90px !important;
+}
 
-	.freelancer-overview .freelancer-avatar img {
-		border-radius: 50%;
-		height: 100%;
-	}
+.freelancer-overview .freelancer-avatar img {
+	border-radius: 50% !important;
+    height: 100% !important;
+}
 </style>
 
 @endsection

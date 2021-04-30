@@ -147,7 +147,18 @@ class viewController extends Controller
         } else {
             $id = $request->id;
         }
-        $status = ['Pending', 'Rejected', 'Accepted'];
+        $statuses = ['Pending', 'Rejected', 'Accepted'];
+
+        if (Auth::user()->type == 'admin') {
+            $applications = DB::table('applications')
+                ->join('users', 'users.user_id', '=', 'applications.User_id')
+                ->join('positions', 'positions.position_id', '=', 'applications.Position_id')
+                ->select('users.name as user_name', 'users.lname as user_lname', 'users.cv as user_cv',   'users.email as user_email',  'users.major_id as user_major_id', 'users.image as user_image', 'applications.*', 'positions.name as position_name', 'positions.title as position_title')
+                ->where([['applications.position_id', 'like', "$id"]])->get();
+
+            $positions = Position::all();
+            return view('public.applications', compact('applications', 'statuses', 'positions'));
+        }
 
         $applications = DB::table('applications')
             ->join('users', 'users.user_id', '=', 'applications.User_id')
@@ -156,7 +167,7 @@ class viewController extends Controller
             ->where([['positions.User_id', Auth::id()], ['applications.position_id', 'like', "$id"]])->get();
 
         $positions = Position::where('User_id', Auth::id())->get();
-        return view('public.applications', compact('applications', 'status', 'positions'));
+        return view('public.applications', compact('applications', 'statuses', 'positions'));
     }
     public function jobs(Request $request)
     {
@@ -245,17 +256,18 @@ class viewController extends Controller
         $userSkills = explode(',', $user['skills']);
         $cities = ['Amman', 'Irbid', 'Zarqa', 'Ajloun', 'Jerash', 'Salt', 'Mafraq', 'Karak', "Maan", 'Madaba', 'Tafilah', 'Aqaba'];
         $statuss = ['Open', 'Closed', 'Hidden'];
+        $myMajor = Major::where('major_id', '=', $user->major_id)->get();
 
 
         if ($user['type'] == 'company' || $user->type == 'RequestCompany') {
             $positions = Position::where('User_id', $user['user_id'])->get();
-            return view('public.CompanyProfile', compact('user', 'positions', 'majors', 'statuss', 'cities'));
+            return view('public.CompanyProfile', compact('user', 'positions', 'majors', 'statuss', 'cities', 'myMajor'));
         } else {
             $applications = Application::where('applications.User_id', $user['user_id'])
                 ->join('users', 'users.user_id', '=', 'applications.User_id')
                 ->join('positions', 'positions.position_id', '=', 'applications.Position_id')
                 ->select('applications.*', 'positions.name as position_name', 'positions.type as position_type',  'users.name as user_name', 'users.image as user_image')->get();
-            return view('public.traineeProfile', compact('user', 'applications',  'majors', 'cities', 'userSkills'));
+            return view('public.traineeProfile', compact('user', 'applications',  'majors', 'cities', 'userSkills', 'myMajor'));
         }
     }
     public function myProfile()
@@ -276,7 +288,7 @@ class viewController extends Controller
         if ($user['type'] == 'company' || $user->type == 'RequestCompany') {
             $statuss = ['Open', 'Closed', 'Hidden'];
             $positions = Position::where('User_id', $user['user_id'])->get();
-            return view('public.CompanyProfile', compact('user', 'positions', 'cities', 'majors', 'statuss',));
+            return view('public.CompanyProfile', compact('user', 'positions', 'cities', 'majors', 'statuss', 'myMajor'));
         } else {
             $applications = Application::where('applications.User_id', $user['user_id'])
                 ->join('users', 'users.user_id', '=', 'applications.User_id')

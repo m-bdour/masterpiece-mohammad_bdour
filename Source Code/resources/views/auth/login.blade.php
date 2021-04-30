@@ -1,7 +1,8 @@
 @extends('layout.public')
 @section("title")
     <title>Qorrah | Homepage</title>
-    <meta name="description" content="Online Appointments Registeration system for book driving lessons">
+    <meta name="description" content="a platform that provides the link between students who are looking for specialized training
+ with institutions that have training vacancies">
 @endsection
 @section('content')
 
@@ -64,18 +65,12 @@
 							<strong>{{ $message }}</strong>
 						</span>
 					@enderror
-					<div class="checkbox">
-						<input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}  >
-						<label for="remember"><span class="checkbox-icon"></span>   {{ __('Remember Me') }}</label>
-					</div>
+					
 					</div>
 				</form>
 				
 				<!-- Button -->
 				<button class="button full-width button-sliding-icon ripple-effect margin-top-10" type="submit" form="login-form"> {{ __('Login') }} <i class="icon-material-outline-arrow-right-alt"></i></button>
-				@if (Route::has('password.request'))
-				<a href="{{ route('password.request') }}" class="forgot-password">  {{ __('Forgot Your Password?') }}</a>
-			@endif
 			<div class="margin-bottom-60" ></div>
 
 				{{-- <!-- Social Login -->

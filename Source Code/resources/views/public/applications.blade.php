@@ -1,7 +1,10 @@
 @extends('layout.public')
 @section("title")
 <title>Qorrah | Applications</title>
-<meta name="description" content="Online Appointments Registeration system for book driving lessons">
+<meta name="description" content="a platform that provides the link between students who are looking for specialized training
+ with institutions that have training vacancies">
+ <meta name="keywords" content="Qorrah, Applications, Training">
+
 
 <style>
 	#wrapper {
@@ -176,7 +179,7 @@
 																			<h5>user major </h5>
 																			<select class="selectpicker with-border" id="majorSelect" value="{{ $application->status}}" name="applications" data-size="4" required>
 																				<option disabled value='select major'>select Status</option>
-																				@foreach($statusas as $status)
+																				@foreach($statuses as $status)
 																				@if ($application->status== $status)
 																				<option selected class="batata" value={{$status}}>{{$status}}</option>
 																				@else

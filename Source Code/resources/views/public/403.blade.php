@@ -1,7 +1,10 @@
 @extends('layout.public')
 @section("title")
     <title>Qorrah | 403</title>
-    <meta name="description" content="Online Appointments Registeration system for book driving lessons">
+    <meta name="description" content= " a platform that provides the link between students who are looking for specialized training
+ with institutions that have training vacancies">
+ <meta name="keywords" content="403, forbidden">
+
 @endsection
 @section('content')
 
@@ -12,13 +15,13 @@
 		<div class="row">
 			<div class="col-md-12">
 
-				<h2>403 Not Found</h2>
+				<h2>403 forbidden</h2>
 
 				<!-- Breadcrumbs -->
 				<nav id="breadcrumbs" class="dark">
 					<ul>
 						<li><a href="/">Home</a></li>
-						<li>403 Not Found</li>
+						<li>403 forbidden</li>
 					</ul>
 				</nav>
 
@@ -37,7 +40,7 @@
 
 			<section id="not-found" class="center margin-bottom-25">
 				<h2>403 <i class="icon-feather-alert-circle"></i></h2>
-				<p>We're sorry, but the page you were looking for doesn't exist</p>
+				<p>The page you were looking for is forbidden!</p>
 			</section>
 
 			<div class="row">

@@ -1,7 +1,10 @@
 @extends('layout.public')
 @section("title")
     <title>Qorrah | Home</title>
-    <meta name="description" content="Online Appointments Registeration system for book driving lessons">
+    <meta name="description" content="a platform that provides the link between students who are looking for specialized training
+ with institutions that have training vacancies">
+ <meta name="keywords" content="Qorrah, home, Training">
+
 @endsection
 @section('content')
 {{-- 
@@ -212,10 +215,9 @@
 									<h3 class="task-listing-title">{{"$position->name"}} </h3>
 									<span>{{"$position->company_name"}}</span>
 									<ul class="task-icons">
-										@if (!($position->city))
-										<li><i class="icon-material-outline-location-on"></i> {{"$position->company_city"}}</li>
-										@else
+										@if (($position->city))
 										<li><i class="icon-material-outline-location-on"></i> {{"$position->city"}}</li>
+										@else
 											
 										@endif
 										@if ( ($date = (strtotime(date("Y-m-d"))  - strtotime(explode(" " , $position->created_at)[0]))) < 60*60*24 )
@@ -228,7 +230,10 @@
 									<div class="task-tags margin-top-15">
 
 										@foreach (explode(',', $position['skills']) as $skill)
+										@if ($skill !='')
+
 										<span>{{"$skill"}}</span>
+										@endif
 										@endforeach
 
 

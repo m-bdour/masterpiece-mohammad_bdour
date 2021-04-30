@@ -85,6 +85,8 @@
                                                 <li><a href="/admin/positions"> Positions</a></li>
                                                 <li><a href="/admin/applications">applications</a></li>
                                                 <li><a href="/admin/Testimonials"> Testimonials</a></li>
+                                                <li><a href="/admin/reports"> Reports</a></li>
+                                                <li><a href="/admin/Contacts"> Contacts</a></li>
                                             </ul>
                                         </li>
 
@@ -100,8 +102,8 @@
 
                                     </ul>
                                 </li>
-
-                                @elseif ( Auth::user() && Auth::user()->type == 'company')
+                                @endif
+                                @if ( Auth::user() && (Auth::user()->type == 'company' || Auth::user()->type == 'admin' ))
                                 <li><a href="{{ url('/trainees') }}">trainees</a></li>
                                 <li><a href="{{ route('CompanyApplications') }}">Applications</a></li>
                                 @else
@@ -151,7 +153,7 @@
                             <div class="header-notifications user-menu">
                                 <div class="header-notifications-trigger">
                                     <a href="#">
-                                        <div class="user-avatar status-online"><img src={{asset("assets/images/profile/". Auth::user()->image)}} alt=""></div>
+                                        <div class="user-avatar"><img src={{asset("assets/images/profile/". Auth::user()->image)}} alt="{{Auth::user()->name}}"></div>
                                     </a>
                                 </div>
 

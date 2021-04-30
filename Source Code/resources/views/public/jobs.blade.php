@@ -1,7 +1,10 @@
 @extends('layout.public')
 @section("title")
 <title>Qorrah | Jobs</title>
-<meta name="description" content="Online Appointments Registeration system for book driving lessons">
+<meta name="description" content="a platform that provides the link between students who are looking for specialized training
+ with institutions that have training vacancies">
+ <meta name="keywords" content="Qorrah, Jobs, Training">
+
 
 <style>
     #wrapper {
@@ -92,18 +95,14 @@
 
 			<div class="listings-container grid-layout margin-top-35">
 				@foreach ($jobs as $job)
-                    
 				<!-- Job Listing -->
 				<a href={{ route('job', ['id'=>$job->position_id]) }} class="job-listing">
 
 					<!-- Job Listing Details -->
 					<div class="job-listing-details">
 						<!-- Logo -->
-						<div class="job-listing-company-logo">
-							@if ($job->cover != 'JobCoverPlaceholder.png')
-								
+						<div class="job-listing-company-logo">								
 							<img src={{asset("assets/images/profile/$job->company_image")}} alt="{{$job->company_name}}">
-							@endif
 						</div>
 
 						<!-- Details -->
@@ -136,11 +135,34 @@
 				</a>
                 @endforeach
 
+				@if (count($jobs) <1)
+									<!-- Job Listing -->
+				<a href="#" class=" center inactiveLink">
+
+					<!-- Job Listing Details -->
+					<div class="job-listing-details">
+						<!-- Logo -->
+						<div class="job-listing-company-logo">								
+						</div>
+
+						<!-- Details -->
+						<div class="job-listing-description">
+							<h3 class="job-listing-company">Sorry, No results for this search.</h3>
+						</div>
+					</div>
+
+	
+				</a>
+				@endif
+
 			</div>
+			@if (count($jobs) >1)
+
 			<div class="pagination-block">
 				{{  $jobs->appends(request()->input())->links('layout.paginationlinks') }}
 
 			</div>
+			@endif
 		</div>
 	</div>
 	<!-- Full Page Content / End -->

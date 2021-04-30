@@ -1,7 +1,8 @@
 @extends('layout.admin')
 @section("title")
 <title>Qorrah | Contacts</title>
-<meta name="description" content="Online Appointments Registeration system for book driving lessons">
+<meta name="description" content="a platform that provides the link between students who are looking for specialized training
+with institutions that have training vacancies">
 
 <style>
 
@@ -49,7 +50,7 @@
 					<h3><i class="icon-material-outline-supervisor-account"></i> <span class="counter">{{count($contacts)}}</span> contacts</h3>
 					<div class="flexCenterToBlock" >
 						<p class="phoneMargainTop15">Search:</p>
-						<input type="text" class="margin-left-5 margin-right-5 nameSearch" placeholder="by page">
+						<input type="text" class="margin-left-5 margin-right-5 nameSearch" placeholder="by subject">
 						<input type="text" class="margin-left-5 margin-right-5 emailSearch" placeholder="by email">
 					</div>
 				</div>
@@ -67,10 +68,14 @@
 
 										<!-- Name -->
 										<div class="freelancer-name">
-											<h5>Name</h5>
-											<h4 class="page" >{{$contact->name}}</h4>
-											<h5>subject</h5>
-											<h4 class="page" >{{$contact->subject}}</h4>
+											<div class="freelancer-detail-item" style="margin: 0 20px 0 0" >
+												<h5>Name</h5>
+												<h4 class="page" >{{$contact->name}}</h4>
+											</div>
+											<div class="freelancer-detail-item " style="margin: 0 20px">
+												<h5>subject</h5>
+												<h4 class="subject" >{{$contact->subject}}</h4>
+											</div>
 
 											<!-- Details -->
 											<span class="freelancer-detail-item userEmail"><i class="icon-feather-mail"></i>{{$contact->email}}</span>
@@ -85,6 +90,11 @@
 													</button>
 											</form>
 											@endif
+											<div>
+												<hr style="width: 50% ; border: none ; border-bottom: 1px solid rgba(54, 54, 54, 0.322); text-align:left;margin-left:0">
+												<h5>{{"Comment"}}</h5>
+												<p>{{"$contact->comments"}}</p>
+											</div>
 
 
 
@@ -105,32 +115,6 @@
 																</form>
 														</div>
 												</div>
-
-
-												<!-- Accordion -->
-												<div class=" js-accordion">
-													<!-- Accordion Item -->
-													<div class="js-accordion-item">
-														<div class="js-accordion-header "><button class="button   ripple-effect toggelDelete"><i class="icon-line-awesome-info"></i> Comments</button></div>
-
-														<!-- Accordtion Body -->
-														<div class="accordion-body js-accordion-body" style=" padding-top: 0px; margin-top: 0px; padding-bottom: 0px; margin-bottom: 0px; display: none;" >
-															<div class="notification closeable">
-																<h4>{{"Comment"}}</h4>
-																<p>{{"$contact->comments"}}</p>
-
-
-															</div>
-														</div>
-														<!-- Accordion Body / End -->
-													</div>
-													<!-- Accordion Item / End -->
-
-												</div>
-												<!-- Accordion / End -->
-
-
-
 											</div>
 										</div>
 									</div>
@@ -157,7 +141,7 @@
 		var counter = 0 ;
 
 		var all = $(".Element").map(function() {
-			let text = $(this).find('.page').text().toLowerCase();
+			let text = $(this).find('.subject').text().toLowerCase();
 			let searchText = $(".nameSearch").val().toLowerCase();
 			if ((text).search(searchText) < 0) {
 

@@ -1,7 +1,8 @@
 @extends('layout.admin')
 @section("title")
 <title>Qorrah | Edit position</title>
-<meta name="description" content="Online Appointments Registeration system for book driving lessons">
+<meta name="description" content="a platform that provides the link between students who are looking for specialized training
+ with institutions that have training vacancies">
 @endsection
 @section('adminContent')
 
@@ -63,7 +64,7 @@
 								<div class="col-xl-4">
 									<div class="submit-field">
 										<h5>type</h5>
-										<select class="selectpicker with-border" name="type" value="{{ $position->type }}" data-size="4" data-live-search="true">
+										<select class="selectpicker with-border" name="type" value="{{ $position->type }}" data-size="4"  >
 											<option disabled value='select type'>select type</option>
 											@foreach ($types as $type)
 											@if ($position->type == $type)
@@ -193,7 +194,7 @@
 								<div class="col-xl-4">
 									<div class="submit-field">
 										<h5>Status</h5>
-										<select class="selectpicker with-border"  data-live-search="true" name="status" data-size="4" value="{{ $position->status }}"  >
+										<select class="selectpicker with-border"    name="status" data-size="4" value="{{ $position->status }}"  >
 											<option disabled value='select company'>select status</option>
 											@foreach($statuss as $Pstatus)
 											<option class="batata" value={{$Pstatus}}>{{$Pstatus}}

@@ -1,7 +1,8 @@
 @extends('layout.admin')
 @section("title")
 <title>Qorrah | Add position</title>
-<meta name="description" content="Online Appointments Registeration system for book driving lessons">
+<meta name="description" content="a platform that provides the link between students who are looking for specialized training
+ with institutions that have training vacancies">
 @endsection
 @section('adminContent')
 
@@ -62,7 +63,7 @@
 								<div class="col-xl-4">
 									<div class="submit-field">
 										<h5>type</h5>
-										<select class="selectpicker with-border" name="type" value="{{ old('type') }}" data-size="4" data-live-search="true" title="Select Job Type">
+										<select class="selectpicker with-border" name="type" value="{{ old('type') }}" data-size="4"  title="Select Job Type">
 											<option disabled value='select type'>select type</option>
 											<option value='Full time Paid'>Full time Paid</option>
 											<option value='Full time Unpaid'>Full time Unpaid</option>
@@ -78,7 +79,7 @@
 								<div class="col-xl-4">
 									<div class="submit-field">
 										<h5>city</h5>
-										<select class="selectpicker with-border" name="city" value="{{ old('city') }}" data-size="4" data-live-search="true" title="Select Job Type">
+										<select class="selectpicker with-border" name="city" value="{{ old('city') }}" data-size="4" data-live-search="true" title="Select city">
 											<option disabled value='select type'>select type</option>
 											<option value='Amman'>Amman</option>
 											<option value='Irbid'>Irbid</option>
@@ -123,7 +124,7 @@
 												<button class="keyword-input-button ripple-effect"><i class="icon-material-outline-add"></i></button>
 											</div>
 											<input type="hidden" id="hiddenInput" name="skills" class="hiddenValue">
-											<p class="hiddenValue hiddenElement" id="skills">hi</p>
+											<p class="hiddenValue hiddenElement" id="skills"></p>
 											<div class="keywords-list">
 												<!-- keywords go here -->
 											</div>
@@ -168,7 +169,7 @@
 								<div class="col-xl-4">
 									<div class="submit-field">
 										<h5>Status</h5>
-										<select class="selectpicker with-border"  data-live-search="true" name="status" data-size="4" value="{{ old('status') }}" title="Select Status ">
+										<select class="selectpicker with-border"  name="status" data-size="4" value="{{ old('status') }}" title="Select Status ">
 											<option disabled value='select Status'>select Status</option>
 											@foreach($statuss as $Pstatus)
 											<option class="batata" value={{$Pstatus}}>{{$Pstatus}}

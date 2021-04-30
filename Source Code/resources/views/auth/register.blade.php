@@ -1,7 +1,8 @@
 @extends('layout.public')
 @section("title")
     <title>Qorrah | Homepage</title>
-    <meta name="description" content="Online Appointments Registeration system for book driving lessons">
+    <meta name="description" content="a platform that provides the link between students who are looking for specialized training
+ with institutions that have training vacancies">
 @endsection
 @section('content')
 

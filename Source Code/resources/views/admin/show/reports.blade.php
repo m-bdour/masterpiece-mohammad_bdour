@@ -1,7 +1,8 @@
 @extends('layout.admin')
 @section("title")
 <title>Qorrah | Reports</title>
-<meta name="description" content="Online Appointments Registeration system for book driving lessons">
+<meta name="description" content="a platform that provides the link between students who are looking for specialized training
+ with institutions that have training vacancies">
 
 <style>
 
@@ -111,10 +112,10 @@
 															<div class="notification closeable">
 																<h4>{{"Page Link"}}</h4>
 																<p>{{"$report->pageLink"}}</p>
-																<hr>
+																<hr style="width: 50% ; border: none ; border-bottom: 1px solid rgba(54, 54, 54, 0.322); text-align:left;margin-left:0">
 																<h4>{{"describe"}}</h4>
 																<p>{{"$report->describe"}}</p>
-																<hr>
+																<hr style="width: 50% ; border: none ; border-bottom: 1px solid rgba(54, 54, 54, 0.322); text-align:left;margin-left:0">
 																<h4>{{"Any thing else"}}</h4>
 																<p>{{"$report->else"}}</p>
 
