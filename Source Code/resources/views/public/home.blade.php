@@ -40,7 +40,7 @@
 			<div class="col-md-12">
 				<div class="banner-headline">
 					<h3>
-						<strong>Hire talented trainees for any job, any time.</strong>
+						<strong >Matching aspiring candidates with inspiring companies.</strong>
 						<br>
 						<span>The first place of talented and creatives ready for your project.</span>
 					</h3>

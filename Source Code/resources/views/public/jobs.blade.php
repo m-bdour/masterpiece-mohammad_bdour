@@ -27,7 +27,7 @@
 		<div class="full-page-sidebar-inner" data-simplebar>
 
 			<!-- all Button / End-->
-		<form method="get" action="{{ route('jobs') }}">
+		<form method="get" action="{{ route('jobs') }}" id="LandingSearch">
 				<div class="sidebar-container">
 						<!-- City Field -->
 						<div class="sidebar-widget">
@@ -73,16 +73,16 @@
 					
 				</div>
 				<!-- Sidebar Container / End -->
+		    </form>
 
 				<!-- Search Button -->
 				<div class="sidebar-search-button-container">
-					<button  type="submit" class="button ripple-effect">Search</button>
+					<button  type="submit" form="LandingSearch" class="button ripple-effect">Search</button>
 					<a href="{{ url('/jobs') }}"><button class="button ripple-effect margin-top-20">All jobs</button></a>
 
 				</div>
 				<!-- Search Button / End-->
 
-		    </form>
 		</div>
 	</div>
 	<!-- Full Page Sidebar / End -->
