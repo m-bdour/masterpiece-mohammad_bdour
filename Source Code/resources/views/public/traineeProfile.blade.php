@@ -11,7 +11,7 @@
 
 <!-- Titlebar
 ================================================== -->
-<div class="single-page-header freelancer-header" data-background-image={{asset("assets/images/profile/$user->coverImage")}}>
+<div class="single-page-header freelancer-header" data-background-image="{{asset("assets/images/profile/$user->coverImage")}}">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">

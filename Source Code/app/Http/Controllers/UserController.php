@@ -209,7 +209,6 @@ class UserController extends Controller
             $coverImage = $user['coverImage'];
         }
 
-
         $request->input('email') ? $user->email = $request->input('email') : null;
         $request->input('phone') ? $user->phone = $request->input('phone') : null;
         $request->input('name') ? $user->name = $request->input('name') : null;
