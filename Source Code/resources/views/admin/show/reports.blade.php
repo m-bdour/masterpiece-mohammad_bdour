@@ -80,9 +80,6 @@
 											<span class="freelancer-detail-item"><i class="icon-material-outline-access-time"></i> {{$report->time}}</span>
 											<span class="freelancer-detail-item userEmail"><i class="icon-feather-mail"></i>{{$report->email}}</span>
 
-
-
-
 											<!-- Buttons -->
 											<div class="buttons-to-right always-visible margin-top-5 margin-bottom-5 flexStart position-relative">
 

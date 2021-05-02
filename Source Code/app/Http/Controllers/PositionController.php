@@ -33,7 +33,7 @@ class PositionController extends Controller
 
 
         $companies = DB::table('users')->where('type', 'company')->orWhere('type', 'RequestCompany')->get();
-        $majors = Major::all();
+        $majors = Major::orderBy('created_at', 'desc')->get();
         $statuss = ['Open', 'Closed', 'Hidden'];
 
         // echo "<pre>";

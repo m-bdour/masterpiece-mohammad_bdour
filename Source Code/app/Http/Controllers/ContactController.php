@@ -22,7 +22,7 @@ class ContactController extends Controller
         if (Auth::user()->type != 'admin') {
             return view('public.403');
         }
-        $contacts = Contact::all();
+        $contacts = Contact::orderBy('created_at', 'desc')->get();
         return view('admin.show.contacts', compact('contacts'));
     }
 

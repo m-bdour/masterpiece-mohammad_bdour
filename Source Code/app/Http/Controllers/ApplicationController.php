@@ -32,7 +32,9 @@ class ApplicationController extends Controller
 
         $status = ['Pending', 'Rejected', 'Accepted'];
         $users = DB::table('users')->where('type', 'user')->get();
-        $positions = Position::all();
+        $positions = Position::join('users', 'users.user_id', '=', 'positions.User_id')
+            ->select('positions.name', 'positions.position_id',  'users.name as company_name')
+            ->get();
 
         // echo "<pre>";
         // echo  json_encode($users);

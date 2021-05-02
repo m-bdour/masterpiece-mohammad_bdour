@@ -166,7 +166,7 @@
                                         <!-- User Name / Avatar -->
                                         <a href="{{ url('/profile') }}">
                                         <div class="user-details">
-                                            <div class="user-avatar status-online"><img src={{asset("assets/images/profile/". Auth::user()->image)}} alt=" {{ Auth::user()->name }}">
+                                            <div class="user-avatar"><img src={{asset("assets/images/profile/". Auth::user()->image)}} alt=" {{ Auth::user()->name }}">
                                             </div>
                                             <div class="user-name">
                                                 {{ Auth::user()->name }} <span>{{ Auth::user()->title }} </span>

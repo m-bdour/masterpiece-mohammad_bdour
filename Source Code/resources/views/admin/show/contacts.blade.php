@@ -5,17 +5,15 @@
 with institutions that have training vacancies">
 
 <style>
+	.freelancer-overview .freelancer-avatar {
+		width: 50px;
+		height: 50px;
+	}
 
-.freelancer-overview .freelancer-avatar {
-    width: 50px;
-    height: 50px;
-}
-
-.freelancer-overview .freelancer-avatar img {
-	border-radius: 50%;
-    height: 100%;
-}
-
+	.freelancer-overview .freelancer-avatar img {
+		border-radius: 50%;
+		height: 100%;
+	}
 </style>
 
 @endsection
@@ -48,7 +46,7 @@ with institutions that have training vacancies">
 				<!-- Headline -->
 				<div class="headline flexbetweenToBlock">
 					<h3><i class="icon-material-outline-supervisor-account"></i> <span class="counter">{{count($contacts)}}</span> contacts</h3>
-					<div class="flexCenterToBlock" >
+					<div class="flexCenterToBlock">
 						<p class="phoneMargainTop15">Search:</p>
 						<input type="text" class="margin-left-5 margin-right-5 nameSearch" placeholder="by subject">
 						<input type="text" class="margin-left-5 margin-right-5 emailSearch" placeholder="by email">
@@ -68,77 +66,97 @@ with institutions that have training vacancies">
 
 										<!-- Name -->
 										<div class="freelancer-name">
-											<div class="freelancer-detail-item" style="margin: 0 20px 0 0" >
+											<div class="freelancer-detail-item" style="margin: 0 20px 0 0">
 												<h5>Name</h5>
-												<h4 class="page" >{{$contact->name}}</h4>
+												<h4 class="page">{{$contact->name}}</h4>
 											</div>
 											<div class="freelancer-detail-item " style="margin: 0 20px">
 												<h5>subject</h5>
-												<h4 class="subject" >{{$contact->subject}}</h4>
+												<h4 class="subject">{{$contact->subject}}</h4>
 											</div>
 
 											<!-- Details -->
 											<span class="freelancer-detail-item userEmail"><i class="icon-feather-mail"></i>{{$contact->email}}</span>
 											@if ($contact->attachment )
-												
-											<form class="inline margin-right-30" method="GET" >
+
+											<form class="inline margin-right-30" method="GET">
 												<input type="hidden" name="id" value="{{$contact->attachment }}">
 												<button formaction={{ route('download') }}>
-													<li><i class="icon-material-outline-attach-file">
-													</i>
-														Attachments
-													</button>
+							<li><i class="icon-material-outline-attach-file">
+								</i>
+								Attachments
+								</button>
+								</form>
+								@endif
+
+
+								<!-- Buttons -->
+								<div class="buttons-to-right always-visible margin-top-5 margin-bottom-5 flexStart position-relative">
+
+									<a href="#small-dialog-1" class=" button popup-with-zoom-anim gray ripple-effect "><i class="icon-feather-trash-2"></i> Delete</a>
+
+									<div id="small-dialog-1" class=" small-dialog zoom-anim-dialog mfp-hide dialog-with-tabs popupForm">
+
+										<!--Tabs -->
+
+										<div class="notification info closeable" style="height: 10rem">
+											<p style="font-size: 1.3rem">Are you sure you want to delete this report?</p>
+											<form style="width: 120px; float:right" action="{{'/admin/contacts/delete/'. $contact->id}}" method="get">
+												<button type="submit" class="button red ripple-effect"><i class="icon-feather-trash-2"></i> confirm</button>
 											</form>
-											@endif
-											<div>
-												<hr style="width: 50% ; border: none ; border-bottom: 1px solid rgba(54, 54, 54, 0.322); text-align:left;margin-left:0">
-												<h5>{{"Comment"}}</h5>
-												<p>{{"$contact->comments"}}</p>
-											</div>
-
-
-
-
-											<!-- Buttons -->
-											<div class="buttons-to-right always-visible margin-top-5 margin-bottom-5 flexStart position-relative">
-
-												<a href="#small-dialog-1" class=" button popup-with-zoom-anim gray ripple-effect " ><i class="icon-feather-trash-2"></i> Delete</a>
-
-												<div id="small-dialog-1" class=" small-dialog zoom-anim-dialog mfp-hide dialog-with-tabs popupForm">
-								
-													<!--Tabs -->
-												
-														<div class="notification info closeable" style="height: 10rem">
-															<p style="font-size: 1.3rem" >Are you sure you want to delete this contact?</p>
-																<form style="width: 120px; float:right" action="{{'/admin/contacts/delete/'. $contact->id}}" method="get" >
-																	<button type="submit" class="button red ripple-effect" ><i class="icon-feather-trash-2"></i> confirm</button>
-																</form>
-														</div>
-												</div>
-											</div>
 										</div>
 									</div>
-								</div>
-							</li>
-							@endforeach
 
-						</ul>
+
+									<!-- Accordion -->
+									<div class=" js-accordion">
+										<!-- Accordion Item -->
+										<div class="js-accordion-item">
+											<div class="js-accordion-header "><button class="button   ripple-effect toggelDelete"><i class="icon-line-awesome-info"></i> More</button></div>
+
+											<!-- Accordtion Body -->
+											<div class="accordion-body js-accordion-body" style=" padding-top: 0px; margin-top: 0px; padding-bottom: 0px; margin-bottom: 0px; display: none;">
+												<div class="notification closeable">
+													<h5>{{"Comment"}}</h5>
+													<p>{{"$contact->comments"}}</p>
+
+
+												</div>
+											</div>
+											<!-- Accordion Body / End -->
+										</div>
+										<!-- Accordion Item / End -->
+
+									</div>
+									<!-- Accordion / End -->
+
+
+
+								</div>
+
 
 					</div>
 				</div>
 			</div>
+			</li>
+			@endforeach
+
+			</ul>
 
 		</div>
-		<!-- Row / End -->
 	</div>
+</div>
+
+</div>
+<!-- Row / End -->
+</div>
 </div>
 <!-- Dashboard Content / End -->
 
 <script>
-
 	//search script
-	$( ".nameSearch" ).keyup(function() {
-		var counter = 0 ;
+	$(".nameSearch").keyup(function() {
+		var counter = 0;
 
 		var all = $(".Element").map(function() {
 			let text = $(this).find('.subject').text().toLowerCase();
@@ -146,15 +164,15 @@ with institutions that have training vacancies">
 			if ((text).search(searchText) < 0) {
 
 				$(this).addClass('hideElement')
-			}else {
+			} else {
 				counter++;
 				$(this).removeClass('hideElement')
 			}
 			$('.counter').text(counter);
 		}).get();
-});
-	$( ".emailSearch" ).keyup(function() {
-		var counter = 0 ;
+	});
+	$(".emailSearch").keyup(function() {
+		var counter = 0;
 
 
 		var all = $(".Element").map(function() {
@@ -162,14 +180,13 @@ with institutions that have training vacancies">
 			let searchText = $(".emailSearch").val().toLowerCase();
 			if ((text).search(searchText) < 0) {
 				$(this).addClass('hideElement')
-			}else {
+			} else {
 				counter++;
 				$(this).removeClass('hideElement')
 			}
 			$('.counter').text(counter);
 		}).get();
-});
-
+	});
 </script>
 
 @endsection

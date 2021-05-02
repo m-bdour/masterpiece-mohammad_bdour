@@ -45,7 +45,7 @@
 										<select class="selectpicker with-border" id="positionSelect" data-live-search="true" name="Position_id" id="Position_id" data-size="5" value="{{ old('Position_id') }}" title="select position" >
 											<option disabled value='select major'>select position</option>
 											@foreach($positions as $position)
-											<option value={{$position->position_id}}>{{$position->name}}
+											<option value={{$position->position_id}}>{{"$position->name "}} &nbsp; -> &nbsp; {{" $position->company_name"}} 
 											</option>
 											@endforeach
 										</select>
