@@ -189,6 +189,7 @@ class viewController extends Controller
         $jobs = Position::join('users', 'users.user_id', '=', 'positions.User_id')
             ->select('positions.*', 'users.name as company_name', 'users.image as company_image', 'users.city as company_city')
             ->where([['positions.status', '!=', 'Hidden'], ['positions.majors', 'like',  $request->majors], ['positions.type', 'like',  $request->types], ['positions.city', 'like',  $request->cities]])
+            ->orderBy('created_at', 'desc')
             ->paginate(8);
         $jobs->appends($request->all());
         $cities = ['Amman', 'Irbid', 'Zarqa', 'Ajloun', 'Jerash', 'Salt', 'Mafraq', 'Karak', "Maan", 'Madaba', 'Tafilah', 'Aqaba'];
