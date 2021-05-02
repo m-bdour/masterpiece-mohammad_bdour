@@ -156,8 +156,15 @@
 										<select class="selectpicker with-border" id="majorSelect" data-live-search="true" name="user_id" data-size="4" value="{{ old('user_id') }}" title="Select company ">
 											<option disabled value='select company'>select company</option>
 											@foreach($companies as $company)
+											@if ($company->type == 'company')
+											
 											<option class="batata" value={{$company->user_id}}>{{$company->name}}
 											</option>
+											@else
+											<option class="batata" value={{$company->user_id}}>{{$company->name}} 
+											</option>
+												
+											@endif
 											@endforeach
 										</select>
 										@if ($errors->has('user_id'))

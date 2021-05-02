@@ -3172,7 +3172,7 @@
 }
 
 .text-danger {
-  color: red;
+  color: red !important;
 }
 
 .inactiveLink {

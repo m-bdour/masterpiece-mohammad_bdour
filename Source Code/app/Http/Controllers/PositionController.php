@@ -23,7 +23,7 @@ class PositionController extends Controller
     public function index()
     {
 
-        $companies = DB::table('users')->where('type', 'company')->get();
+        $companies = DB::table('users')->where('type', 'company')->orWhere('type', 'RequestCompany')->get();
         $majors = Major::all();
         $statuss = ['Open', 'Closed', 'Hidden'];
 
@@ -77,7 +77,7 @@ class PositionController extends Controller
 
             $user_id = $request->input('user_id');
         }
-        if (Auth::user()->type == 'RequestCompany') {
+        if (Auth::user()->type == 'RequestCompany' && Auth::user()->type != 'admin') {
             $status = 'Hidden';
         } else {
             $status = $request->input('status');
