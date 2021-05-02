@@ -154,7 +154,9 @@ class viewController extends Controller
                 ->join('users', 'users.user_id', '=', 'applications.User_id')
                 ->join('positions', 'positions.position_id', '=', 'applications.Position_id')
                 ->select('users.name as user_name', 'users.lname as user_lname', 'users.cv as user_cv',   'users.email as user_email',  'users.major_id as user_major_id', 'users.image as user_image', 'applications.*', 'positions.name as position_name', 'positions.title as position_title')
-                ->where([['applications.position_id', 'like', "$id"]])->get();
+                ->where([['applications.position_id', 'like', "$id"]])
+                ->orderBy('created_at', 'desc')
+                ->get();
 
             $positions = Position::all();
             return view('public.applications', compact('applications', 'statuses', 'positions'));
@@ -164,7 +166,9 @@ class viewController extends Controller
             ->join('users', 'users.user_id', '=', 'applications.User_id')
             ->join('positions', 'positions.position_id', '=', 'applications.Position_id')
             ->select('users.name as user_name', 'users.lname as user_lname', 'users.cv as user_cv',   'users.email as user_email',  'users.major_id as user_major_id', 'users.image as user_image', 'applications.*', 'positions.name as position_name', 'positions.title as position_title')
-            ->where([['positions.User_id', Auth::id()], ['applications.position_id', 'like', "$id"]])->get();
+            ->where([['positions.User_id', Auth::id()], ['applications.position_id', 'like', "$id"]])
+            ->orderBy('created_at', 'desc')
+            ->get();
 
         $positions = Position::where('User_id', Auth::id())->get();
         return view('public.applications', compact('applications', 'statuses', 'positions'));
@@ -223,7 +227,9 @@ class viewController extends Controller
         // WHERE columnname LIKE '%'
         $trainees = DB::table('users')->join('majors', 'majors.major_id', '=', 'users.major_id')
             ->select('users.*', 'majors.major',)
-            ->where($search)->paginate(6);
+            ->where($search)
+            ->inRandomOrder()
+            ->paginate(6);
         $trainees->appends($request->all());
         $cities = ['Amman', 'Irbid', 'Zarqa', 'Ajloun', 'Jerash', 'Salt', 'Mafraq', 'Karak', "Maan", 'Madaba', 'Tafilah', 'Aqaba'];
         $majors = Major::all();
@@ -233,7 +239,9 @@ class viewController extends Controller
 
     public function Companies()
     {
-        $companies = DB::table('users')->where('type', 'company')->paginate(9);
+        $companies = DB::table('users')->where('type', 'company')
+            ->inRandomOrder()
+            ->paginate(9);
         return view('public.companies', compact('companies'));
     }
     public function profile($id)
