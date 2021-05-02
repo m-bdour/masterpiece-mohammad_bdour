@@ -21,7 +21,7 @@ class DownloadController extends Controller
 
         $pathToFile = public_path('attachments/') . $request->id;
         $extention = substr(strrchr($request->id, "."), 1);
-        $name = substr($request->id, 10);
+        $name = substr($request->id, 9);
 
         $headers = [`content-type: application/$extention`];
         return response()->download($pathToFile, $name, $headers);
