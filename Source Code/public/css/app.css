@@ -3175,6 +3175,10 @@
   color: red;
 }
 
+.invalid-feedback {
+  color: red !important;
+}
+
 .text-warning {
   color: #8f872e !important;
   background-color: #FBFADD !important;

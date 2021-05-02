@@ -23,6 +23,15 @@ class PositionController extends Controller
     public function index()
     {
 
+
+        if (!(Auth::check())) {
+            return redirect('/login')->with('info', 'Login first!');
+        }
+        if (Auth::user()->type != 'admin') {
+            return view('public.403');
+        }
+
+
         $companies = DB::table('users')->where('type', 'company')->orWhere('type', 'RequestCompany')->get();
         $majors = Major::all();
         $statuss = ['Open', 'Closed', 'Hidden'];
