@@ -161,7 +161,7 @@
 											<option class="batata" value={{$company->user_id}}>{{$company->name}}
 											</option>
 											@else
-											<option class="batata" value={{$company->user_id}}>{{$company->name}} 
+											<option class="batata text-warning " value={{$company->user_id}}>{{$company->name}} (Req)
 											</option>
 												
 											@endif
