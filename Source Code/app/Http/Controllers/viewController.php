@@ -275,7 +275,7 @@ class viewController extends Controller
             $applications = Application::where('applications.User_id', $user['user_id'])
                 ->join('users', 'users.user_id', '=', 'applications.User_id')
                 ->join('positions', 'positions.position_id', '=', 'applications.Position_id')
-                ->select('applications.*', 'positions.name as position_name', 'positions.type as position_type',  'users.name as user_name', 'users.image as user_image')->get();
+                ->select('applications.*', 'positions.name as position_name', 'positions.position_id', 'positions.type as position_type',  'users.name as user_name', 'users.image as user_image')->get();
             return view('public.traineeProfile', compact('user', 'applications',  'majors', 'cities', 'userSkills', 'myMajor'));
         }
     }
@@ -302,7 +302,7 @@ class viewController extends Controller
             $applications = Application::where('applications.User_id', $user['user_id'])
                 ->join('users', 'users.user_id', '=', 'applications.User_id')
                 ->join('positions', 'positions.position_id', '=', 'applications.Position_id')
-                ->select('applications.*', 'positions.name as position_name', 'positions.type as position_type',  'users.name as user_name', 'users.image as user_image')->get();
+                ->select('applications.*', 'positions.name as position_name', 'positions.position_id',  'positions.type as position_type',  'users.name as user_name', 'users.image as user_image')->get();
             return view('public.traineeProfile', compact('user', 'applications',  'majors', 'cities', 'userSkills', 'myMajor'));
         }
     }

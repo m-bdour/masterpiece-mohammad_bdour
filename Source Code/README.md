@@ -59,7 +59,7 @@ Then in file ".env" complete database configuration:
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=onepiece
+DB_DATABASE=qorrah
 DB_USERNAME=root
 DB_PASSWORD=
 ```
