@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
+use App\manage;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -40,6 +41,19 @@ class RegisterController extends Controller
     {
         $this->middleware('guest');
     }
+
+    public function showRegistrationForm()
+{
+    $manages = manage::where("id" , '=' , '1')->get();
+    $manage = [];
+    foreach ($manages as $thismanage) {
+        $manage = $thismanage ;
+    }
+
+    $title = 'Register';
+
+    return view('auth.register', compact('register' , 'manage'));
+}
 
     /**
      * Get a validator for an incoming registration request.

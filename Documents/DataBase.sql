@@ -1,360 +1,47 @@
--- phpMyAdmin SQL Dump
--- version 5.0.4
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Generation Time: Apr 30, 2021 at 11:03 PM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 7.4.15
+INSERT INTO `majors` (`major_id`, `major`, `created_at`, `updated_at`) VALUES
+(2, 'Electrical Engineering', '2021-04-14 19:04:21', '2021-04-14 19:04:21'),
+(3, 'Mechanical Engineering', '2021-04-14 19:04:32', '2021-04-23 09:20:52'),
+(4, 'Biomedical Engineering', '2021-04-14 19:04:36', '2021-04-14 19:04:36'),
+(5, 'Industrial Engineering', '2021-04-14 19:04:44', '2021-04-14 19:04:44'),
+(6, 'Aeronautical Engineering', '2021-04-14 19:04:50', '2021-04-14 19:04:50'),
+(7, 'Nuclear Engineering', '2021-04-14 19:04:55', '2021-04-14 19:04:55'),
+(9, 'Doctor Of Pharmacy', '2021-04-14 19:05:27', '2021-04-14 19:05:27'),
+(10, 'Nursing', '2021-04-14 19:05:41', '2021-04-14 19:05:41'),
+(11, 'Midwifery', '2021-04-14 19:05:47', '2021-04-14 19:05:47'),
+(12, 'Computer Engineering', '2021-04-14 19:06:00', '2021-04-14 19:06:00'),
+(13, 'Computer Science', '2021-04-14 19:06:05', '2021-04-14 19:06:05'),
+(14, 'Computer Information Systems', '2021-04-14 19:06:11', '2021-04-14 19:06:11'),
+(15, 'Network Engineering And Security', '2021-04-14 19:06:18', '2021-04-14 19:06:18'),
+(16, 'Software Engineering', '2021-04-14 19:06:23', '2021-04-14 19:06:23'),
+(17, 'Arabic Language', '2021-04-14 19:06:52', '2021-04-14 19:06:52'),
+(18, 'English Language & Linguistics', '2021-04-14 19:06:58', '2021-04-14 19:06:58'),
+(19, 'Humanities', '2021-04-14 19:07:03', '2021-04-14 19:07:03'),
+(20, 'Mathematics', '2021-04-14 19:07:09', '2021-04-14 19:07:09'),
+(21, 'Chemistry', '2021-04-14 19:07:14', '2021-04-14 19:07:14'),
+(22, 'Physics', '2021-04-14 19:07:20', '2021-04-14 19:07:20'),
+(23, 'Applied Biological Sciences', '2021-04-14 19:07:31', '2021-04-14 19:07:31'),
+(24, 'Biotechnology & Genetic Engineering', '2021-04-14 19:07:37', '2021-04-14 19:07:37'),
+(25, 'orensic Sciences', '2021-04-14 19:07:43', '2021-04-14 19:07:43'),
+(26, 'Animal Production', '2021-04-14 19:08:09', '2021-04-14 19:08:09'),
+(27, 'Plant Production', '2021-04-14 19:08:15', '2021-04-14 19:08:15'),
+(28, 'Nutrition & Food Technology', '2021-04-14 19:08:20', '2021-04-14 19:08:20'),
+(29, 'Natural Resources & Environment', '2021-04-14 19:08:25', '2021-04-14 19:08:25'),
+(30, 'Doctor Of Medicine', '2021-04-14 19:08:41', '2021-04-14 19:08:41'),
+(31, 'Public Health', '2021-04-14 19:08:47', '2021-04-14 19:08:47'),
+(32, 'Health Managment And Policy', '2021-04-14 19:08:52', '2021-04-14 19:08:52'),
+(33, 'Paramedics', '2021-04-14 19:09:08', '2021-04-14 19:09:08'),
+(34, 'Radiologic Technology', '2021-04-14 19:09:13', '2021-04-14 19:09:13'),
+(35, 'Medical Laboratory Sciences', '2021-04-14 19:09:18', '2021-04-14 19:09:18'),
+(36, 'Dental Technology', '2021-04-14 19:09:23', '2021-04-14 19:09:23'),
+(37, 'Allied Dental Sciences', '2021-04-14 19:09:28', '2021-04-14 19:09:28'),
+(38, 'Optometry', '2021-04-14 19:09:35', '2021-04-14 19:09:35'),
+(39, 'Physical Therapy', '2021-04-14 19:09:41', '2021-04-14 19:09:41'),
+(40, 'Occupational Therapy', '2021-04-14 19:09:47', '2021-04-14 19:09:47'),
+(41, 'Audiology & Speech Pathology', '2021-04-14 19:09:52', '2021-04-14 19:09:52'),
+(42, 'Clinical Rehabilitation Science', '2021-04-14 19:09:58', '2021-04-14 19:09:58'),
+(43, 'Civil Engineering', '2021-04-27 03:21:23', '2021-04-27 03:21:23');
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
 
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `onepiece`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `applications`
---
-
-CREATE TABLE `applications` (
-  `application_id` bigint(20) UNSIGNED NOT NULL,
-  `coverLetter` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `attachment` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT 'Pending',
-  `User_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `Position_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `applications`
---
-
-INSERT INTO `applications` (`application_id`, `coverLetter`, `attachment`, `status`, `User_id`, `Position_id`, `created_at`, `updated_at`) VALUES
-(31, 'Please accept me', NULL, 'Pending', 57, 44, '2021-04-29 11:23:47', '2021-04-29 11:23:47'),
-(32, 'Pleeeeas', NULL, 'Pending', 58, 44, '2021-04-29 11:24:04', '2021-04-29 11:24:04'),
-(33, NULL, NULL, 'Pending', 62, 45, '2021-04-29 11:24:18', '2021-04-29 11:24:18'),
-(34, 'Obcaecati vero ullam', NULL, 'Accepted', 65, 47, '2021-04-29 11:24:24', '2021-04-29 11:24:24'),
-(35, 'Culpa soluta illum', NULL, 'Pending', 66, 49, '2021-04-29 11:24:27', '2021-04-29 11:24:27'),
-(36, 'Illo totam et iure v', NULL, 'Accepted', 86, 48, '2021-04-29 11:24:31', '2021-04-29 11:24:31'),
-(37, 'Qui quis dolore est', NULL, 'Rejected', 65, 45, '2021-04-29 11:24:34', '2021-04-29 11:24:34'),
-(38, 'Consequatur Enim pr', NULL, 'Rejected', 61, 46, '2021-04-29 11:24:37', '2021-04-29 11:24:37'),
-(39, 'Dignissimos enim tem', NULL, 'Pending', 70, 49, '2021-04-29 11:24:41', '2021-04-29 11:24:41'),
-(40, 'Amet natus modi ea', NULL, 'Accepted', 62, 47, '2021-04-29 11:24:44', '2021-04-29 11:24:44'),
-(41, 'Libero suscipit quos', NULL, 'Pending', 73, 44, '2021-04-29 11:24:47', '2021-04-29 11:24:47'),
-(42, 'Ut maxime tempor qui', NULL, 'Rejected', 66, 46, '2021-04-29 11:24:50', '2021-04-29 11:24:50'),
-(43, 'Eum cupidatat dolore', NULL, 'Pending', 70, 44, '2021-04-29 11:24:53', '2021-04-29 11:24:53');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `contacts`
---
-
-CREATE TABLE `contacts` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `subject` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `comments` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `attachment` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `contacts`
---
-
-INSERT INTO `contacts` (`id`, `name`, `email`, `subject`, `comments`, `attachment`, `created_at`, `updated_at`) VALUES
-(2, 'Elaine Hull', 'dovag@mailinator.com', 'In quis incididunt f', 'Consectetur officia', NULL, '2021-04-27 20:49:30', '2021-04-27 20:49:30'),
-(3, 'Imani Obrien', 'dupuk@mailinator.com', 'Quae est ex voluptat', 'Aut non mollit volup', NULL, '2021-04-27 20:49:35', '2021-04-27 20:49:35'),
-(4, 'Fitzgerald Dodson', 'pusiw@mailinator.com', 'Nostrum reprehenderi', 'Officiis voluptatem', NULL, '2021-04-27 20:49:41', '2021-04-27 20:49:41'),
-(5, 'Emily Hernandez', 'vosubak@mailinator.com', 'Ad odit eos sunt la', 'Pariatur Consequatu', NULL, '2021-04-27 20:49:46', '2021-04-27 20:49:46'),
-(6, 'User Name', 'wuhigyzifu@mailinator.com', 'Company request account', 'Batatataaa', '1619625917.jpg', '2021-04-28 13:05:17', '2021-04-28 13:05:17'),
-(7, 'Medge Weber', 'malel@mailinator.com', 'Aut sed sed ab incid', 'Quia id omnis autem', NULL, '2021-04-28 15:19:47', '2021-04-28 15:19:47'),
-(8, 'Dean Bright', 'kaje@mailinator.com', 'Enim reprehenderit', 'Voluptatem Ratione', NULL, '2021-04-29 11:36:23', '2021-04-29 11:36:23'),
-(9, 'Darius Bauer', 'suzezabep@mailinator.com', 'Odit aliquid earum a', 'Commodo labore eaque', NULL, '2021-04-29 11:38:55', '2021-04-29 11:38:55');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `failed_jobs`
---
-
-CREATE TABLE `failed_jobs` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `majors`
---
-
-CREATE TABLE `majors` (
-  `major_id` bigint(20) UNSIGNED NOT NULL,
-  `major` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `College` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `majors`
---
-
-INSERT INTO `majors` (`major_id`, `major`, `College`, `created_at`, `updated_at`) VALUES
-(2, 'Electrical Engineering', '', '2021-04-14 19:04:21', '2021-04-14 19:04:21'),
-(3, 'Mechanical Engineering', 'Engineering', '2021-04-14 19:04:32', '2021-04-23 09:20:52'),
-(4, 'Biomedical Engineering', '', '2021-04-14 19:04:36', '2021-04-14 19:04:36'),
-(5, 'Industrial Engineering', '', '2021-04-14 19:04:44', '2021-04-14 19:04:44'),
-(6, 'Aeronautical Engineering', '', '2021-04-14 19:04:50', '2021-04-14 19:04:50'),
-(7, 'Nuclear Engineering', '', '2021-04-14 19:04:55', '2021-04-14 19:04:55'),
-(9, 'Doctor Of Pharmacy', '', '2021-04-14 19:05:27', '2021-04-14 19:05:27'),
-(10, 'Nursing', '', '2021-04-14 19:05:41', '2021-04-14 19:05:41'),
-(11, 'Midwifery', '', '2021-04-14 19:05:47', '2021-04-14 19:05:47'),
-(12, 'Computer Engineering', '', '2021-04-14 19:06:00', '2021-04-14 19:06:00'),
-(13, 'Computer Science', '', '2021-04-14 19:06:05', '2021-04-14 19:06:05'),
-(14, 'Computer Information Systems', '', '2021-04-14 19:06:11', '2021-04-14 19:06:11'),
-(15, 'Network Engineering And Security', '', '2021-04-14 19:06:18', '2021-04-14 19:06:18'),
-(16, 'Software Engineering', '', '2021-04-14 19:06:23', '2021-04-14 19:06:23'),
-(17, 'Arabic Language', '', '2021-04-14 19:06:52', '2021-04-14 19:06:52'),
-(18, 'English Language & Linguistics', '', '2021-04-14 19:06:58', '2021-04-14 19:06:58'),
-(19, 'Humanities', '', '2021-04-14 19:07:03', '2021-04-14 19:07:03'),
-(20, 'Mathematics', '', '2021-04-14 19:07:09', '2021-04-14 19:07:09'),
-(21, 'Chemistry', '', '2021-04-14 19:07:14', '2021-04-14 19:07:14'),
-(22, 'Physics', '', '2021-04-14 19:07:20', '2021-04-14 19:07:20'),
-(23, 'Applied Biological Sciences', '', '2021-04-14 19:07:31', '2021-04-14 19:07:31'),
-(24, 'Biotechnology & Genetic Engineering', '', '2021-04-14 19:07:37', '2021-04-14 19:07:37'),
-(25, 'orensic Sciences', '', '2021-04-14 19:07:43', '2021-04-14 19:07:43'),
-(26, 'Animal Production', '', '2021-04-14 19:08:09', '2021-04-14 19:08:09'),
-(27, 'Plant Production', '', '2021-04-14 19:08:15', '2021-04-14 19:08:15'),
-(28, 'Nutrition & Food Technology', '', '2021-04-14 19:08:20', '2021-04-14 19:08:20'),
-(29, 'Natural Resources & Environment', '', '2021-04-14 19:08:25', '2021-04-14 19:08:25'),
-(30, 'Doctor Of Medicine', '', '2021-04-14 19:08:41', '2021-04-14 19:08:41'),
-(31, 'Public Health', '', '2021-04-14 19:08:47', '2021-04-14 19:08:47'),
-(32, 'Health Managment And Policy', '', '2021-04-14 19:08:52', '2021-04-14 19:08:52'),
-(33, 'Paramedics', '', '2021-04-14 19:09:08', '2021-04-14 19:09:08'),
-(34, 'Radiologic Technology', '', '2021-04-14 19:09:13', '2021-04-14 19:09:13'),
-(35, 'Medical Laboratory Sciences', '', '2021-04-14 19:09:18', '2021-04-14 19:09:18'),
-(36, 'Dental Technology', '', '2021-04-14 19:09:23', '2021-04-14 19:09:23'),
-(37, 'Allied Dental Sciences', '', '2021-04-14 19:09:28', '2021-04-14 19:09:28'),
-(38, 'Optometry', '', '2021-04-14 19:09:35', '2021-04-14 19:09:35'),
-(39, 'Physical Therapy', '', '2021-04-14 19:09:41', '2021-04-14 19:09:41'),
-(40, 'Occupational Therapy', '', '2021-04-14 19:09:47', '2021-04-14 19:09:47'),
-(41, 'Audiology & Speech Pathology', '', '2021-04-14 19:09:52', '2021-04-14 19:09:52'),
-(42, 'Clinical Rehabilitation Science', '', '2021-04-14 19:09:58', '2021-04-14 19:09:58'),
-(43, 'Civil Engineering', 'Engineering', '2021-04-27 03:21:23', '2021-04-27 03:21:23');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `migrations`
---
-
-CREATE TABLE `migrations` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `batch` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `migrations`
---
-
-INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(37, '2014_10_12_100000_create_password_resets_table', 1),
-(38, '2019_08_19_000000_create_failed_jobs_table', 1),
-(39, '2021_04_01_121001_create_Majors_table', 1),
-(40, '2021_04_03_000000_create_users_table', 1),
-(41, '2021_04_05_192703_create_positions_table', 1),
-(42, '2021_04_06_195025_create_testimonials_table', 1),
-(43, '2021_04_08_201657_create_applications_table', 1),
-(44, '2021_04_22_211909_create_contacts_table', 1),
-(45, '2021_04_27_192610_create_reports_table', 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `password_resets`
---
-
-CREATE TABLE `password_resets` (
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `positions`
---
-
-CREATE TABLE `positions` (
-  `position_id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `cover` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `skills` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `majors` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `type` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `attachment` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `city` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT 'null',
-  `status` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `User_id` bigint(20) UNSIGNED NOT NULL,
-  `about` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `positions`
---
-
-INSERT INTO `positions` (`position_id`, `name`, `cover`, `title`, `skills`, `majors`, `type`, `address`, `attachment`, `city`, `status`, `User_id`, `about`, `created_at`, `updated_at`) VALUES
-(44, 'Full stack-Developer', 'JobCoverPlaceholder.png', NULL, 'Git,jQuery,bootstrap,angular,Maven,Bamboo ,JEE', 'Computer Engineering,Computer Science,Computer Information Systems,Network Engineering And Security,Software Engineering', 'Full time Paid', NULL, NULL, 'Amman', 'Open', 75, 'Develop and mentor technically Android team, role requires hands-on software development skills, deep technical expertise across the entire software delivery process, from content generation to delivery.\r\nWork closely with apple on new product and feature launches.\r\nDevelop mobile requirements & work closely with the product, design, third-party providers, vendors and the services teams to convert ideas to reality while managing all aspects of the software development lifecycle.\r\nProvide architectural guidance and direction to solve complex problems with simple solutions.\r\nProvide operational oversight to the developers on the team.\r\nUnderstand and share the big picture with the developers on the team.\r\nCreate technical documentation and keep it current.\r\nExpert knowledge of building responsive user experiences across phones and tablets.\r\nExpertise in performance, scalability, security, architecture, and engineering best practices.\r\nWillingness to stay up-to-date with the latest in emerging technologies/trends on mobile platforms.\r\nExperience engineering video centric products with knowledge of multi-bitrate streaming and casting.\r\nExperience integrating with third-party libraries such as video and display advertising.\r\nExperience implementing in-app purchase would be nice to have.\r\nExperience implementing personalization solutions would be nice to have.\r\nExperience providing guidance and oversight to the developers on the team Growth and Efficiency: Program mgmt. and governance to achieve Orange strategy targets (“Fit for Growth” and “Accelerate”) and ensure long term competitiveness (benchmark).\r\nOperational Support: provide support to operational units to ensure smooth operations and in building & monitoring budget, spend and forecasts vs targets, manage both monthly and yearly closing activities.\r\nSourcing Management: provide governance to increase sharing of teams across services and customers according to Digital services  Resource Management framework: support teams’ staffing by optimizing  balance of internal movements of resources to fulfill new demand vs new onboarding; internals vs externals; attrition; drop-outs; cross-service movements; workforce planning & supplier management.\r\nProcess Management: Quality and Improvements.\r\nEvolution: provide input to strategy to drive evolution and develop structural plans to improve organizational agility and adapt to customer requirements.', '2021-04-26 11:11:36', '2021-04-29 11:11:36'),
-(45, 'Intermediate Developer', 'JobCoverPlaceholder.png', NULL, 'Linux ,JavaScript,Rest – API,GWT,JSF,OpenLDAP,ReactJS,Maven', 'Computer Engineering,Computer Science,Computer Information Systems,Network Engineering And Security,Software Engineering', 'Full time Paid', NULL, NULL, 'Irbid', 'Open', 75, 'As part of a small Agile team distributed across multiple locations, our developer will:\r\n\r\nAssess, design, develop, integrate, test, and document software evolutions with a strong focus on Web based platform development with complex business features\r\nTroubleshoot software issues and fix bugs.\r\nParticipate actively and proactively to all project overviews and team meetings\r\n Overall daily tasks:\r\nCode developing\r\nOwnership of technical designs, code development, and component test execution to demonstrate alignment to the functional specification.\r\nUsing configuration management and integration/build automation tools to lead and deploy Java code.\r\nApplying knowledge of common, relevant architecture frameworks in defining and evaluating application architectures.\r\nDocumentation creation\r\nPerforming code reviews and providing critical suggestions for fixes and improvements\r\nSupporting issue analysis and fix activities during test phases, as well as providing support to project manager for production issue resolution.\r\nPerformance tuning Java-based applications.\r\nDeveloping and demonstrating a broad set of technology skills in Java technologies, micro service design patterns, Open Source libraries and frameworks, and technology architecture concepts.\r\nCollaborating within a project team with diverse and complementary skills', '2021-04-29 11:13:13', '2021-04-29 11:13:13'),
-(46, 'Business Development Executive', 'JobCoverPlaceholder.png', NULL, 'TCP,accounting , business and management,Demonstrated,selling technology solutions', 'Electrical Engineering,Mechanical Engineering,Industrial Engineering,Computer Engineering,Network Engineering And Security,Software Engineering,Applied Biological Sciences', 'Full time Paid', NULL, NULL, 'Zarqa', 'Open', 75, 'Like to work in IT & Communication,\r\n\r\nToying with cutting edge technologies and enjoying your life at the same time? Come closer to #LifeAtOrange.\r\n\r\nWe’ll recruit\r\n\r\nYou from the safety of your home and we’ll prepare you for the challenges of these\r\n\r\nTroubled times.For the\r\n\r\nTime being, our activity is carried out remotely.\r\n\r\n\r\nWhat we\'re looking for\r\nAn\r\nExperienced and at the\r\n\r\nSame time a self-improvement profile who likes to play on the ground of the highest\r\n\r\nBusiness sales approach;\r\n\r\nAn\r\nAmbitious and entrepreneurial spirit close to the core values of this position;\r\n\r\nhas advanced\r\nKnowledge of the sales process with the ability to understand and interpret\r\n\r\nCustomer needs, using fact-finding to identify sales opportunities;\r\n\r\nSomeone who has a high passion\r\nFor success and strong self motivation;\r\n\r\nSomeone who has technical\r\nKnowledge related to IT datacenter and cloud solutions (including server\r\n\r\nAnd storage services and equipment), CRM, ERP, mobile device management,\r\n\r\nSFA, M2M solutions, etc;\r\n\r\nSomeone who shows a keen interest\r\nIn the telecom industry and appetite for technology related topics and IT\r\n\r\nApplications;\r\n\r\nSomeone who is an effective team\r\nPlayer with strong work ethics;\r\n\r\nSomeone\r\nWho is patient\r\n\r\nWith repetitive tasks and has strong analytical skills;\r\n\r\nSomeone who is customer oriented\r\nAnd tries to deliver the best results, being able to listen to and meet\r\n\r\nThe expectations of our customers;\r\n\r\nSomeone who is able to work in a\r\n(Sometimes) stressful environment and is able to meet deadlines and track\r\n\r\nThe issues until they are resolved;', '2021-04-30 11:15:29', '2021-04-29 11:15:29'),
-(47, 'Software Engineer', 'JobCoverPlaceholder.png', NULL, 'Bootstrap,JQuery ,CSS,HTML,ReactJS', 'Mechanical Engineering,Computer Engineering,Computer Science,Computer Information Systems,Software Engineering', 'Full time Unpaid', NULL, NULL, 'Zarqa', 'Open', 78, 'Building, testing and deploying enhancements to new and existing software\r\nWrite a well-documented, tested code and ensure adherence to guidelines and standards, maintaining the best possible performance, quality, and responsiveness of the\r\napplications\r\nImplement and develop apps using JavaScript, NodeJS, ReactJS, HTML, CSSand Bootstrap\r\nEnsure the best possible performance, quality, and responsiveness of the applications\r\nIdentify bottlenecks and bugs, and devise solutions\r\nWork in all phases of software development life cycle, including design, research, development, deployment and testing to create a great user experience for users', '2021-04-29 11:18:49', '2021-04-29 11:18:49'),
-(48, 'Senior Software Engineer', 'JobCoverPlaceholder.png', NULL, 'Android ,Dagger,Rxjava,JSON,REST , Android SDK', 'Computer Engineering,Computer Science,Network Engineering And Security,Software Engineering,English Language & Linguistics', 'Part time Unpaid', NULL, NULL, 'Jerash', 'Open', 78, 'Design and build advanced applications for the Android platform\r\nCollaborate with cross-functional teams to define, design, and ship new feature\r\nWork with outside data sources and APIs\r\nUnit-test code for robustness, including edge cases, usability, and general reliability\r\nWork on bug fixing and improving application performance\r\nContinuously discover, evaluate, and implement new technologies to maximize development efficiency', '2021-04-25 11:20:29', '2021-04-29 11:20:29'),
-(49, 'DIRECTOR - PROGRAM QUALITY', 'JobCoverPlaceholder.png', NULL, 'planning ,communication,management ,strategic', 'Midwifery,Computer Science,Arabic Language,English Language & Linguistics,Humanities,Applied Biological Sciences,Public Health,Paramedics,Dental Technology,Occupational Therapy,Clinical Rehabilitation Science', 'Full time Unpaid', NULL, NULL, 'Mafraq', 'Closed', 80, 'CARE Turkey is seeking an experienced and innovative Director, Program Quality (DPQ) who will be a member of CARE Turkey\'s CORE Management Team (CMT). The DPQ will assume overall responsibility, leadership, and management of the CO\'s Program Quality Unit. The DPQ is expected to provide strategic leadership in the areas of program development, monitoring and evaluation, and learning as well as crosscutting technical expertise.\r\n\r\nIn this role, the Director, Program Quality, will lead the development of a coherent approach and set priorities to advance CI\'s Global Vision and Mission and Regional and Country Office priorities. S/he will oversee program quality for both the Cross Border and Refugee Program including, Knowledge management, program design and development, and program quality: monitoring, evaluation, learning, and impact measurement.\r\n\r\nThe DPQ will contribute significantly to the Country Office\'s commitment to long-term, quality programming. S/he will be expected to lead technical improvements in program design and development to ensure quality and adherence to programming standards and CARE\'s programming principles and also manage a team of professionals focused on the design, funding, monitoring, and evaluation of programs and projects (including emergency programs), , research, advocacy and communications that is informed by lessons learned and realities on the ground.', '2021-04-29 11:22:59', '2021-04-29 11:22:59'),
-(51, 'COUNTRY DIRECTOR - HAITI', 'JobCoverPlaceholder.png', NULL, 'NGOs,MBA,MPH,strategist,Collaborative ,leadership', 'Industrial Engineering,Arabic Language,English Language & Linguistics,Humanities,Radiologic Technology,Dental Technology,Optometry,Occupational Therapy,Clinical Rehabilitation Science', 'Full time Unpaid', NULL, NULL, 'Mafraq', 'Open', 80, 'We’re looking for a strong leader for our Haiti team. Someone who can open doors to new partners and strengthen relationships with existing ones. Serve as CARE Haiti’s biggest ambassador and advocate for gender equity. Someone who can tell the CARE story and help us secure the funds to grow CARE’s impact. We need you to…\r\nDrive strategy. Develop the blueprint to guide CARE’s work in Haiti, driving innovation and impact at scale, and help shape the LAC regional strategy.\r\nLead the team. Guide a passionate team of program managers and operations experts.\r\nPromote CARE. Maintain strong relationships with government, partners and donors, such as the USAID, BHA, the World Bank, and European Union\r\nGrow the portfolio. Work with business development teams to identify, track and coordinate responses to funding opportunities. Develop partnerships that lead to new funding.\r\nMake sure we play by the rules. Serve as our chief compliance officer in Haiti. Ensure that we are ethical and efficient, that we have the procedures in place to be strong steward of donor funding and accountable to our partners and program participants.\r\nLead with integrity. Create a positive and productive workplace. One that values hard work, feedback and continuous improvement, diversity, inclusion and a strong commitment to CARE.', '2021-04-26 08:41:25', '2021-04-30 08:41:25'),
-(52, 'EDUCATION ADVISOR', 'JobCoverPlaceholder.png', NULL, 'Education,International Development,management ,strategies', 'Arabic Language,English Language & Linguistics,Humanities,Mathematics,Chemistry,Physics,Public Health,Occupational Therapy,Clinical Rehabilitation Science', 'Full time Paid', NULL, NULL, 'Mafraq', 'Open', 80, 'CARE is seeking an Education Advisor who will contribute to CARE’s priorities of developing academic abilities as well as leadership skills and other 21st century skills to boost students’ agency and consequently address barriers for equal participation - in class, in their communities, and beyond. CARE’s work brings together communities, schools and government partners to create gender-transformative, innovative, and sustainable solutions to ensure that marginalized children and adolescents, especially girls, are able to stay in school, succeed academically and personally and transition to meaningful engagement in society.', '2021-04-28 08:43:28', '2021-04-30 08:43:28'),
-(53, 'Fulton Bender', 'JobCoverPlaceholder.png', 'Natus quo voluptatem', '', 'Electrical Engineering,Industrial Engineering,Aeronautical Engineering,Nuclear Engineering,Doctor Of Pharmacy,Nursing,Arabic Language,Humanities,Paramedics,Radiologic Technology,Medical Laboratory Sciences,Allied Dental Sciences,Occupational Therapy,Audiology & Speech Pathology,Civil Engineering', 'Part time Unpaid', 'Voluptatibus in veni', NULL, 'Ajloun', 'Closed', 85, 'Nostrum dolorum iste', '2021-04-27 08:51:15', '2021-04-30 08:51:15'),
-(54, 'Software Engineer (Python)', 'JobCoverPlaceholder.png', NULL, 'Python ,Django,SQL', 'Computer Information Systems,Software Engineering', 'Full time Paid', NULL, NULL, 'Zarqa', 'Open', 77, 'As a software engineer within the MVD team you will help to maintain and extend our Python codebase that performs valuation of financial instruments. The successful candidate will also have the opportunity to participate in the design and architecture of extensions to our software stack, along with the chance to work on new/greenfield projects.', '2021-04-27 08:53:00', '2021-04-30 08:53:00'),
-(55, 'HR Services and Solutions Consultant / Senior Consultant', 'JobCoverPlaceholder.png', NULL, 'Proactivity,Advising,Coaching,Recruitment', 'Industrial Engineering,Computer Information Systems,English Language & Linguistics,Humanities', NULL, NULL, NULL, NULL, 'Open', 77, 'Point of contact for Workday related topics and enhancements with the Global teams\r\nSupport on local implementation, and also perform the integration of Workday data to related systems as required\r\nMaintain data accuracy by performing reconciliation and clean up as required\r\nGather and prepare Human Capital reports and surveys\r\nAssist in any other ad-hoc report request from internal and external clients\r\nAssist in basic analysis and summary of the generated data\r\nAdminister Human Capital systems\r\nAddresses operation issues and provides regular feedback to team members\r\nInvolve in reports automation and process review\r\nInvolve in projects as assigned', '2021-04-27 08:54:56', '2021-04-30 08:54:56'),
-(56, 'Microsoft Data Platform Developer', 'JobCoverPlaceholder.png', NULL, 'SQL ,DevOps,Visual Studio,Power BI,Excel,Python', 'Computer Engineering,Computer Science,Computer Information Systems,Network Engineering And Security,Software Engineering', 'Full time Paid', NULL, NULL, 'Amman', 'Open', 77, 'As a Developer in our Microsoft Apps team your impact will be seen by:\r\nAssisting in the delivery of proof of concepts built on the Azure Data Platform, Power BI and SQL Server Business Intelligence Solutions.\r\nThe technical delivery and implementation of data models, data transformation process and reporting.\r\nBeing part of delivery streams focusing on the delivery of the specific solution component allocated to your team.\r\nYour ability to delivery the work allocated to you on-time and within scope according to agreed best practices and using prescribed tools, frameworks and processes.\r\nYour ability to engage with diverse stakeholders to support data and analytics, process and system development\r\nPrevious experience on delivery projects which were delivered using Agile and Waterfall methodologies\r\nAbility to develop reports, dashboards & scorecards, data exploration and visual analytics using existing and emerging tools and technologies\r\nYour ability to demonstrate your experience in creating and maintaining detailed documentation.\r\nYour ability to work independently or as part of a team to design and develop solutions', '2021-04-28 08:57:17', '2021-04-30 08:57:17'),
-(57, 'Education Technical Specialist', 'JobCoverPlaceholder.png', NULL, 'Education ,NGO,representation,communication skills,humanitarian', 'English Language & Linguistics,Humanities,Applied Biological Sciences,orensic Sciences,Health Managment And Policy,Allied Dental Sciences', 'Full time Unpaid', NULL, NULL, 'Jerash', 'Open', 81, 'Represents Save the Children in Education Working Group/Cluster. Works with UNICEF, UNHCR and other key education actors to develop high quality sector strategy documents (HRP, HNO, 3RPetc.) and represents the sector in regional and national forums. This may involve taking on a co-chairing role where needs demand.\r\n* Work in close collaboration with education field team to ensure Save the Children representation at the education working group/cluster at Governorate levels.\r\n* Ensure that Save the Children\'s planning and work is coordinated with efforts of other agencies and Government, and take a leadership role within Interagency Coordination forums (including Education Cluster Strategic Advisory Group - SAG), ensuring the specific needs of children are being addressed.\r\n* In collaboration with Child Rights Governance, lead key policy and advocacy initiatives and turn these into action with local and national stakeholders feeding into international advocacy efforts.\r\n* Play a leadership role in shaping Education English and Arabic communications and media priorities in line with thematic priorities and collaborate with Communications, Advocacy and Program Operations to ensure quality communication products and visibility materials.\r\n* Take the initiative in linking global SCI resources with Country office, documenting lessons learnt, best practice and case studies to shape in-country strategies and programme approaches, and contribute to broader sector learning.', '2021-04-28 08:59:57', '2021-04-30 08:59:57'),
-(58, 'Book Development and Use Intern', 'JobCoverPlaceholder.png', NULL, ',humanitarian ,communication skills,representation', 'Humanities,Applied Biological Sciences,Animal Production,Natural Resources & Environment,Optometry', 'Full time Unpaid', NULL, NULL, 'Jerash', 'Open', 81, 'This position is on Child Safeguarding- Level 3: The post holder will have contact with children and/or young people either frequently (e.g. once a week or more) or intensively (e.g. four days in one month or more or overnight) because they work country programs. Or are visiting country programs; or because they are responsible for implementing the police checking/vetting process staff.\r\n\r\n\r\n\r\nANTI-HARASSMENT Policy\r\n\r\n\r\nWe are committed to ensuring a safe working environment for all those who work for us and for all those who come into contact with our staff and representatives, including children and members of the communities with whom we work.\r\n\r\n\r\n\r\nSCI takes a zero tolerance approach to sexual harassment and any other conduct that is discriminatory or disrespectful to others.', '2021-04-30 10:04:17', '2021-04-30 10:04:17'),
-(59, 'Oxfam Shop Volunteer', 'JobCoverPlaceholder.png', NULL, ',Health ,analytics,sales ,communicate clearly', 'Humanities,Mathematics,Physics,Health Managment And Policy', 'Part time Unpaid', NULL, NULL, 'Jerash', 'Open', 83, 'Our Shops\r\n\r\nWith a network of over 600 shops, our diverse volunteers play an integral role in championing Oxfam’s value, running the shops and promoting our life saving work to the wider community. Through the sales of donated goods and our ethical range of new products, Sourced by Oxfam, our shops raise millions of pound each year to fund our crucial work to end the injustice of poverty. Oxfam shops are at the forefront in campaigning for sustainable fashion and we are proud that no item of clothing donated to us finds its way to the landfill. Since it opened in 1974, all donated clothing items that do not sell in our shops are brought into our Wastesaver warehouse, where they are sorted and sent to various retail channels such as festival shops, specialist boutiques, Oxfam’s Online Shop or to our social enterprise project, Frip Ethique, in Senegal.\r\n\r\n\r\nWhy do we need you?\r\n\r\nOur shops would not be able to raise crucial funds for Oxfam’s emergency and development work all over the world without our dedicated volunteers, who provide their time and bring multitude of skills. In return, we offer personal development, valuable insight into charity retail and a friendly environment to meet new people.\r\n\r\n\r\nWhat are your key responsibilities?\r\n\r\nDepending on the needs of the shop and your interest, you may be involved in the following:\r\n\r\n• Using the shop’s guidelines to sort and price donated clothes, books, homewares etc.\r\n\r\n• Providing customer service on the shop floor.\r\n\r\n• Creating attractive displays across the shop.\r\n\r\n• Promoting our Gift Aid scheme.\r\n\r\n• Promoting our exciting sustainable fashion campaigns such as ‘Second-Hand September’.\r\n\r\n• Listing items on our online channels including Oxfam’s Online Shop.\r\n\r\n• Promoting our shops to the local community through social media.\r\n\r\n\r\nWhat skills and experience are we looking for?\r\n\r\nYou do not need specific skills and experience but the following would be useful:\r\n\r\n• Commitment to Oxfam’s values of empowerment, accountability and inclusiveness.\r\n\r\n• Ability to work within Oxfam’s policies and shop guidelines.\r\n\r\n• An interest in retail and customer service.\r\n\r\n• Ability to work well as part of a team and under own initiative.\r\n\r\n• Willingness to learn.', '2021-04-30 10:13:20', '2021-04-30 10:13:20'),
-(60, 'Income Analyst (Assistant Accountant)', 'JobCoverPlaceholder.png', NULL, ',spreadsheets ,organisational ,Analytical ,planning ,interpersonal ,Accounting', 'Electrical Engineering,Industrial Engineering,Nuclear Engineering,Computer Information Systems,Mathematics,Physics', 'Full time Paid', NULL, NULL, 'Irbid', 'Open', 83, NULL, '2021-04-30 10:16:10', '2021-04-30 10:16:10'),
-(61, 'Front End Developer', 'JobCoverPlaceholder.png', NULL, ',HTML,CSS,JavaScript,Ruby,Node,AWS Cloud', 'Computer Engineering,Computer Science,Software Engineering', 'Full time Paid', NULL, NULL, 'Amman', 'Open', 85, 'Are you an experienced front end application developer who can assist our Customers in delivering breakthrough experiences for their end users? Do you like to work on a variety of game changing projects, at the forefront of application development and cloud technology adoption? Would you like to enable some of the largest enterprises in the world transform how they design, develop, and launch new products?\r\n\r\nAWS Professional Services is looking for highly talented, hands-on front-end developers to help accelerate our growing Professional Services business. This is an excellent opportunity to join Amazon’s technical teams, working with experienced engineers while also developing your skills and furthering your career within an innovative and progressive technology companies.\r\n\r\nYou will work with our Customers, Partners and fellow AWS Consultants in small teams. You will learn a broad range of AWS services and how they integrate with 3rd party tools into enterprise grade solutions. We will help you get certified. You will learn how to guide Customers in developing scalable applications with rich user experiences. You will also help Customer teams build deep software development knowledge with respect to front end architecture, UX/UI design, and programming as well as advising and implementing AWS best practices. You could also leave your mark by leading internal initiatives or contributing to new AWS services.', '2021-04-30 10:18:37', '2021-04-30 10:18:37'),
-(62, 'Software Development Engineer', 'JobCoverPlaceholder.png', NULL, ',Angular JS,Ember JS,Object Oriented,UI/UX design,Dojo', 'Computer Engineering,Computer Science,Computer Information Systems,Software Engineering', NULL, NULL, NULL, NULL, 'Open', 85, 'As customers’ in-memory workloads are growing, their need to scale ElastiCache clusters automagically is also growing which then requires scalable web services, improved security and a simple, yet intuitive console. We are currently looking for an experienced front end developer to build an intuitive console interface for our customers. Are you passionate about front end technologies and keen to work on full-stack development? We are looking for smart and motivated front end engineers who are passinoate about building world class customer experience to not only improve the current console experience but also help shape up new experiences for our customers to use ElastiCache.\r\n\r\nIf you have the skills for building low latency, high throughput, customer-friendly products that delight customers, and are interested in cutting-edge cloud computing, this is the job for you.\r\n\r\nSuccessful candidates for this position will have a strong background in building web applications using current technologies such as HTML5, JavaScript and CSS and web-UI frameworks like jQuery, React, Flux etc. Working with Web Services, JSON, Apache/Tomcat services is desired.\r\n\r\nEqually important to these specific skills are a candidate\'s ability to multi-task, quickly adapt to new development environments and changing business requirements, learn new systems, and create reliable/maintainable code. Successful candidates will also propose ideas for the future of the space and get to shape the roadmap.', '2021-04-30 10:20:13', '2021-04-30 10:20:13'),
-(63, 'Solutions Architect I Intern', 'JobCoverPlaceholder.png', NULL, ',AWS Educate,Database,Big Data,IoT', 'Computer Engineering,Computer Science,Software Engineering', NULL, NULL, NULL, 'Zarqa', 'Open', 85, 'As an Associate Solutions Architect Intern, you will receive deep dive training in modern infrastructure design and management. Training opportunities will include comprehensive training programs and multi-day classroom courses, with opportunities to achieve industry-respected certifications. Throughout the placement, you will be exposed to relevant real-world challenges of different organizations.\r\n\r\nResponsibilities\r\n\r\nIf successful, you will design, evaluate and communicate reference technical solutions in partnership with veteran AWS Solutions Architects and AWS Account Managers. The ability to demonstrate measurable business value against the latest technology best practices and ability to reason about both high- and low-levels of architectural solutions is essential for a future career in IT.\r\nPrepare answers and designs for real-world technical questions and challenges in collaboration with Solutions Architects\r\nShadow phone conversations and face to face meetings between Solutions Architects and AWS customers.\r\nProduce a deliverable project for an AWS customer that involves building solutions in the AWS platform', '2021-04-30 10:21:43', '2021-04-30 10:21:43');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `reports`
---
-
-CREATE TABLE `reports` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `Date` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `time` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `page` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `pageLink` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `describe` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `device` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `OS` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `browser` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `version` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `else` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `reports`
---
-
-INSERT INTO `reports` (`id`, `Date`, `time`, `page`, `pageLink`, `describe`, `device`, `OS`, `browser`, `version`, `else`, `email`, `created_at`, `updated_at`) VALUES
-(2, NULL, 'Id voluptas irure d', 'Adipisicing amet no', 'Aliquid modi aliqua', 'Quibusdam aut harum', 'Laptop', 'Mac', 'Samsung Internet', 'Quis quaerat cillum', 'Unde ipsum consequu', 'pyvez@mailinator.com', '2021-04-27 20:49:56', '2021-04-27 20:49:56'),
-(3, NULL, 'Nam vero qui qui vol', 'Cum qui alias dolore', 'Sit quo velit labor', 'Sit saepe quidem an', 'Desktop computer', 'Linux', 'Firefox', 'Voluptatibus laborio', 'Officia exercitation', 'tymasyhol@mailinator.com', '2021-04-27 20:50:06', '2021-04-27 20:50:06'),
-(4, NULL, 'Aut voluptatem Impe', 'Quae molestias labor', 'Aliquid rerum qui ex', 'Tempor delectus ape', 'Laptop', 'Windows', 'Samsung Internet', 'Commodi suscipit nul', 'Officia veniam anim', 'wicinumyk@mailinator.com', '2021-04-27 20:50:14', '2021-04-27 20:50:14'),
-(5, NULL, 'Eaque amet dolorem', 'Dolor enim voluptate', 'Anim quae incidunt', 'Suscipit ipsa eaque', 'Desktop computer', 'Linux', 'Opera', 'Consectetur asperio', 'Aut quaerat qui beat', 'pegihydiwi@mailinator.com', '2021-04-27 20:51:04', '2021-04-27 20:51:04'),
-(6, NULL, 'Modi laboriosam in', 'Ad exercitationem an', 'Quas aperiam qui mag', 'Voluptas id velit n', 'Tablet', 'Android', 'Safari', 'Eiusmod sit nostrud', 'Quae voluptatum qui', 'cykybaxo@mailinator.com', '2021-04-27 23:55:15', '2021-04-27 23:55:15'),
-(7, NULL, 'Consequatur volupta', 'Qui ducimus vitae c', 'Et quas reprehenderi', 'Aperiam hic qui proi', 'Phone', 'Android', 'Firefox', 'Reiciendis sunt sit', 'Enim perferendis arc', 'soqixaxiw@mailinator.com', '2021-04-28 15:20:15', '2021-04-28 15:20:15'),
-(8, NULL, 'Sunt laudantium exp', 'Quisquam cupidatat i', 'Dolores enim non dol', 'Debitis repudiandae', 'Phone', 'Linux', 'Brave', 'Quia culpa repellen', 'Cillum enim facere a', 'kugafod@mailinator.com', '2021-04-29 11:29:02', '2021-04-29 11:29:02');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `testimonials`
---
-
-CREATE TABLE `testimonials` (
-  `testimonial_id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT 'User',
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT 'defaultProfile.png',
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `text` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `User_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `testimonials`
---
-
-INSERT INTO `testimonials` (`testimonial_id`, `name`, `image`, `title`, `text`, `User_id`, `created_at`, `updated_at`) VALUES
-(3, 'Ahmed E3mar', '16197320201619647875Screenshot_20210321-163544_Gallery.jpg', 'Full-Stack web developer', 'Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate one-to-one customer service with robust ideas. Dynamically innovate resource-leveling customer service for state of the art.', NULL, '2021-04-28 09:00:27', '2021-04-29 18:33:40'),
-(4, 'Hanan S. Al-Nimry', '16197320361619647096IMG_20210404_115002.jpg', 'Civil Engineering Professor', 'Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate one-to-one customer service with robust ideas. Dynamically innovate resource-leveling customer service for state of the art.', NULL, '2021-04-28 09:02:55', '2021-04-29 18:33:56'),
-(5, 'Khadeejah Hamdan', '16197320671619646794Dana_Toughoj.jpg', 'Expert Lead Trainer', 'Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate one-to-one customer service with robust ideas. Dynamically innovate resource-leveling customer service for state of the art.', NULL, '2021-04-28 09:08:49', '2021-04-29 18:34:27'),
-(6, 'David Peterson', '16197320911619646671Ashraf_Al_Jabari.jpg', 'Freelancer', 'Collaboratively administrate turnkey channels whereas virtual e-tailers. Objectively seize scalable metrics whereas proactive e-services. Seamlessly empower fully researched growth strategies and interoperable sources.', NULL, '2021-04-28 09:09:26', '2021-04-29 18:34:51'),
-(7, 'Osama ahmed', '16197321101619648164mohammad.png', 'QC Manager', 'Efficiently unleash cross-media information without cross-media value. Quickly maximize timely deliverables for real-time schemas. Dramatically maintain clicks-and-mortar solutions without functional solutions.', NULL, '2021-04-28 09:10:39', '2021-04-29 18:35:10');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `users`
---
-
-CREATE TABLE `users` (
-  `user_id` bigint(20) UNSIGNED NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT 'User',
-  `lname` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT 'defaultProfile.png',
-  `coverImage` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT 'defultBack.jpg',
-  `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `skills` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `nationality` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `linkedin` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `github` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `twitter` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `behance` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `portfolio` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `city` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `uni` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `about` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `cv` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `type` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `major_id` bigint(20) UNSIGNED DEFAULT NULL,
-  `email_verified_at` timestamp NULL DEFAULT NULL,
-  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `users`
---
 
 INSERT INTO `users` (`user_id`, `email`, `password`, `phone`, `name`, `lname`, `image`, `coverImage`, `title`, `skills`, `nationality`, `linkedin`, `github`, `twitter`, `behance`, `portfolio`, `address`, `city`, `uni`, `about`, `cv`, `type`, `major_id`, `email_verified_at`, `remember_token`, `created_at`, `updated_at`) VALUES
 (57, 'Abdallah.Eid@yahoo.com', '$2y$10$q5LyE7W1THuSi3iTUlMUM.WmCGDxYrHDQyp8UbNRnRlpzEoyyi.Au', '07735492571', 'Abdallah', 'AL Haj Eid', '1619645068Abdallah.jpg', '16196450684.jpg', 'Full Stack Junior Developer', ',HTML,Laravel,JavaScript,React,NodeJS', 'Jordanian', 'https://www.linkedin.com/in/abdallah-alhajeid/', 'https://github.com/Abdallah-Alhajeid', NULL, NULL, NULL, 'Samad', 'Irbid', NULL, 'Description about the trainee: ex: Highly talented individual with strong analytical skills desires to work as a Jr. Web Developer at XXX where ability to provide accurate analysis to complex business system problems and suggest useful solutions is needed. Bringing good knowledge of UMPH-specific business functions and similar computer systems, relevant programming and software tools, and basic knowledge of business systems and similar concepts.', '1619645068abdallah-Alhajeid-Cv.pdf', 'user', 13, NULL, NULL, '2021-04-28 18:24:28', '2021-04-29 11:41:42'),
@@ -389,164 +76,74 @@ INSERT INTO `users` (`user_id`, `email`, `password`, `phone`, `name`, `lname`, `
 (86, 'Ayah.Khawaldeh@gmail.com', '$2y$10$UZEx5VBokb1zYO4CQQ3yKe/HHomTAxlMn9XhFpUOgVdVQ.Uk1Fg3q', '0774120369', 'Ayah', 'Khawaldeh', '1619690471received_256000959494417.jpeg.jpg', '16196904834.jpg', 'Full-Stack web developer', ',PHP,MongoDB,Django,Python,HTML,CSS,SASS', 'Jordanian', 'Facere aut quis offi', 'Elit ex consectetur', 'Amet magna et autem', 'Aut omnis cum a recu', 'Non voluptas vel ea', 'Irbid-Samad', 'Irbid', 'JUST', 'I\'m a Full-Stack web developer who trained at Coding\r\nAcademy from Orange, and so is me\r\nThe third year in computer engineering at the University of\r\nJordan during the training period that she obtained\r\nBasic and technical coding skills and the most used programming\r\nlanguages including (HTML, CSS, PHP,\r\nJavascript, jQuery, Sass) in addition to some other frameworks and\r\ntechnologies such as (WordPress,\r\nMySQL, javascript, bootstrap, Visual Studio, Git, laravel) with the ability to teach me\r\nOnline resource when needed.\r\nI am flexible enough to work nights, weekends, and even vacations\r\nif needed. I have a good eye for details along with excellent project\r\nmanagement and problem-solving skills due to\r\nSoft Skills Academy Training Camp for 100 hours. I also have\r\ngreat organizational skills with the ability to work efficiently and\r\nmeet tight deadlines.\r\nMy goal is to learn as many skills and techniques as possible,as\r\nwell as acquire them. That will help me achieve a good career in IT\r\n. This position will give me the boost I need to get started. I am a\r\nhard worker and a quick learner', '1619690644cheatsheet-a5.pdf', 'user', 13, NULL, NULL, '2021-04-29 06:59:38', '2021-04-29 07:54:26'),
 (87, 'Monther.Twaissi@gmail.com', '$2y$10$d/rEvQRRaPOrE2Y8Nij65elMlv6VZR3XKjRXk0Bjev4pz6h7drjby', '0773158039', 'Monther', 'Twaissi', '161970485520200710_160823_(1).jpg', '1619704855cover_image.jpg.760x400_q85_crop_upscale.jpg', 'Full-Stack web developer', ',PHP,Laravel,HTML,CSS,SASS,Python ,Django', 'Jordanian', 'Doloremque ipsum re', 'Saepe facere dolores', 'Vero est dolore vel', 'Tempor provident ve', 'Culpa quasi qui amet', 'Irbid-Samad', 'Irbid', 'The University of Jordan', 'I started my career as a civil engineer, which allowed me to build analytical logic and problem-solving. But I have always been passionate about programming, so after finishing university I started thinking of a career in it. Joining the Coding Academy by Orange was my serious move towards refining both: hard and soft skills and empowering my active learning mindset.\r\nAlways working on mastering required skills to get the chance to be productive and implement real technical products.', '1619704921Mohammad.pdf', 'admin', 12, NULL, NULL, '2021-04-29 11:00:41', '2021-04-29 11:06:32');
 
---
--- Indexes for dumped tables
---
 
---
--- Indexes for table `applications`
---
-ALTER TABLE `applications`
-  ADD PRIMARY KEY (`application_id`),
-  ADD UNIQUE KEY `applications_user_id_position_id_unique` (`User_id`,`Position_id`),
-  ADD KEY `applications_position_id_foreign` (`Position_id`);
 
---
--- Indexes for table `contacts`
---
-ALTER TABLE `contacts`
-  ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `failed_jobs`
---
-ALTER TABLE `failed_jobs`
-  ADD PRIMARY KEY (`id`);
+INSERT INTO `contacts` (`id`, `name`, `email`, `subject`, `comments`, `attachment`, `created_at`, `updated_at`) VALUES
+(2, 'Elaine Hull', 'dovag@mailinator.com', 'In quis incididunt f', 'Consectetur officia', NULL, '2021-04-27 20:49:30', '2021-04-27 20:49:30'),
+(3, 'Imani Obrien', 'dupuk@mailinator.com', 'Quae est ex voluptat', 'Aut non mollit volup', NULL, '2021-04-27 20:49:35', '2021-04-27 20:49:35'),
+(4, 'Fitzgerald Dodson', 'pusiw@mailinator.com', 'Nostrum reprehenderi', 'Officiis voluptatem', NULL, '2021-04-27 20:49:41', '2021-04-27 20:49:41'),
+(5, 'Emily Hernandez', 'vosubak@mailinator.com', 'Ad odit eos sunt la', 'Pariatur Consequatu', NULL, '2021-04-27 20:49:46', '2021-04-27 20:49:46'),
+(6, 'User Name', 'wuhigyzifu@mailinator.com', 'Company request account', 'Batatataaa', '1619625917.jpg', '2021-04-28 13:05:17', '2021-04-28 13:05:17'),
+(7, 'Medge Weber', 'malel@mailinator.com', 'Aut sed sed ab incid', 'Quia id omnis autem', NULL, '2021-04-28 15:19:47', '2021-04-28 15:19:47'),
+(8, 'Dean Bright', 'kaje@mailinator.com', 'Enim reprehenderit', 'Voluptatem Ratione', NULL, '2021-04-29 11:36:23', '2021-04-29 11:36:23'),
+(9, 'Darius Bauer', 'suzezabep@mailinator.com', 'Odit aliquid earum a', 'Commodo labore eaque', NULL, '2021-04-29 11:38:55', '2021-04-29 11:38:55');
 
---
--- Indexes for table `majors`
---
-ALTER TABLE `majors`
-  ADD PRIMARY KEY (`major_id`);
 
---
--- Indexes for table `migrations`
---
-ALTER TABLE `migrations`
-  ADD PRIMARY KEY (`id`);
 
---
--- Indexes for table `password_resets`
---
-ALTER TABLE `password_resets`
-  ADD KEY `password_resets_email_index` (`email`);
+INSERT INTO `positions` (`position_id`, `name`, `cover`, `title`, `skills`, `majors`, `type`, `address`, `attachment`, `city`, `status`, `User_id`, `about`, `created_at`, `updated_at`) VALUES
+(44, 'Full stack-Developer', 'JobCoverPlaceholder.png', NULL, 'Git,jQuery,bootstrap,angular,Maven,Bamboo ,JEE', 'Computer Engineering,Computer Science,Computer Information Systems,Network Engineering And Security,Software Engineering', 'Full time Paid', NULL, NULL, 'Amman', 'Open', 75, 'Develop and mentor technically Android team, role requires hands-on software development skills, deep technical expertise across the entire software delivery process, from content generation to delivery.\r\nWork closely with apple on new product and feature launches.\r\nDevelop mobile requirements & work closely with the product, design, third-party providers, vendors and the services teams to convert ideas to reality while managing all aspects of the software development lifecycle.\r\nProvide architectural guidance and direction to solve complex problems with simple solutions.\r\nProvide operational oversight to the developers on the team.\r\nUnderstand and share the big picture with the developers on the team.\r\nCreate technical documentation and keep it current.\r\nExpert knowledge of building responsive user experiences across phones and tablets.\r\nExpertise in performance, scalability, security, architecture, and engineering best practices.\r\nWillingness to stay up-to-date with the latest in emerging technologies/trends on mobile platforms.\r\nExperience engineering video centric products with knowledge of multi-bitrate streaming and casting.\r\nExperience integrating with third-party libraries such as video and display advertising.\r\nExperience implementing in-app purchase would be nice to have.\r\nExperience implementing personalization solutions would be nice to have.\r\nExperience providing guidance and oversight to the developers on the team Growth and Efficiency: Program mgmt. and governance to achieve Orange strategy targets (“Fit for Growth” and “Accelerate”) and ensure long term competitiveness (benchmark).\r\nOperational Support: provide support to operational units to ensure smooth operations and in building & monitoring budget, spend and forecasts vs targets, manage both monthly and yearly closing activities.\r\nSourcing Management: provide governance to increase sharing of teams across services and customers according to Digital services  Resource Management framework: support teams’ staffing by optimizing  balance of internal movements of resources to fulfill new demand vs new onboarding; internals vs externals; attrition; drop-outs; cross-service movements; workforce planning & supplier management.\r\nProcess Management: Quality and Improvements.\r\nEvolution: provide input to strategy to drive evolution and develop structural plans to improve organizational agility and adapt to customer requirements.', '2021-04-26 11:11:36', '2021-04-29 11:11:36'),
+(45, 'Intermediate Developer', 'JobCoverPlaceholder.png', NULL, 'Linux ,JavaScript,Rest – API,GWT,JSF,OpenLDAP,ReactJS,Maven', 'Computer Engineering,Computer Science,Computer Information Systems,Network Engineering And Security,Software Engineering', 'Full time Paid', NULL, NULL, 'Irbid', 'Open', 75, 'As part of a small Agile team distributed across multiple locations, our developer will:\r\n\r\nAssess, design, develop, integrate, test, and document software evolutions with a strong focus on Web based platform development with complex business features\r\nTroubleshoot software issues and fix bugs.\r\nParticipate actively and proactively to all project overviews and team meetings\r\n Overall daily tasks:\r\nCode developing\r\nOwnership of technical designs, code development, and component test execution to demonstrate alignment to the functional specification.\r\nUsing configuration management and integration/build automation tools to lead and deploy Java code.\r\nApplying knowledge of common, relevant architecture frameworks in defining and evaluating application architectures.\r\nDocumentation creation\r\nPerforming code reviews and providing critical suggestions for fixes and improvements\r\nSupporting issue analysis and fix activities during test phases, as well as providing support to project manager for production issue resolution.\r\nPerformance tuning Java-based applications.\r\nDeveloping and demonstrating a broad set of technology skills in Java technologies, micro service design patterns, Open Source libraries and frameworks, and technology architecture concepts.\r\nCollaborating within a project team with diverse and complementary skills', '2021-04-29 11:13:13', '2021-04-29 11:13:13'),
+(46, 'Business Development Executive', 'JobCoverPlaceholder.png', NULL, 'TCP,accounting , business and management,Demonstrated,selling technology solutions', 'Electrical Engineering,Mechanical Engineering,Industrial Engineering,Computer Engineering,Network Engineering And Security,Software Engineering,Applied Biological Sciences', 'Full time Paid', NULL, NULL, 'Zarqa', 'Open', 75, 'Like to work in IT & Communication,\r\n\r\nToying with cutting edge technologies and enjoying your life at the same time? Come closer to #LifeAtOrange.\r\n\r\nWe’ll recruit\r\n\r\nYou from the safety of your home and we’ll prepare you for the challenges of these\r\n\r\nTroubled times.For the\r\n\r\nTime being, our activity is carried out remotely.\r\n\r\n\r\nWhat we\'re looking for\r\nAn\r\nExperienced and at the\r\n\r\nSame time a self-improvement profile who likes to play on the ground of the highest\r\n\r\nBusiness sales approach;\r\n\r\nAn\r\nAmbitious and entrepreneurial spirit close to the core values of this position;\r\n\r\nhas advanced\r\nKnowledge of the sales process with the ability to understand and interpret\r\n\r\nCustomer needs, using fact-finding to identify sales opportunities;\r\n\r\nSomeone who has a high passion\r\nFor success and strong self motivation;\r\n\r\nSomeone who has technical\r\nKnowledge related to IT datacenter and cloud solutions (including server\r\n\r\nAnd storage services and equipment), CRM, ERP, mobile device management,\r\n\r\nSFA, M2M solutions, etc;\r\n\r\nSomeone who shows a keen interest\r\nIn the telecom industry and appetite for technology related topics and IT\r\n\r\nApplications;\r\n\r\nSomeone who is an effective team\r\nPlayer with strong work ethics;\r\n\r\nSomeone\r\nWho is patient\r\n\r\nWith repetitive tasks and has strong analytical skills;\r\n\r\nSomeone who is customer oriented\r\nAnd tries to deliver the best results, being able to listen to and meet\r\n\r\nThe expectations of our customers;\r\n\r\nSomeone who is able to work in a\r\n(Sometimes) stressful environment and is able to meet deadlines and track\r\n\r\nThe issues until they are resolved;', '2021-04-30 11:15:29', '2021-04-29 11:15:29'),
+(47, 'Software Engineer', 'JobCoverPlaceholder.png', NULL, 'Bootstrap,JQuery ,CSS,HTML,ReactJS', 'Mechanical Engineering,Computer Engineering,Computer Science,Computer Information Systems,Software Engineering', 'Full time Unpaid', NULL, NULL, 'Zarqa', 'Open', 78, 'Building, testing and deploying enhancements to new and existing software\r\nWrite a well-documented, tested code and ensure adherence to guidelines and standards, maintaining the best possible performance, quality, and responsiveness of the\r\napplications\r\nImplement and develop apps using JavaScript, NodeJS, ReactJS, HTML, CSSand Bootstrap\r\nEnsure the best possible performance, quality, and responsiveness of the applications\r\nIdentify bottlenecks and bugs, and devise solutions\r\nWork in all phases of software development life cycle, including design, research, development, deployment and testing to create a great user experience for users', '2021-04-29 11:18:49', '2021-04-29 11:18:49'),
+(48, 'Senior Software Engineer', 'JobCoverPlaceholder.png', NULL, 'Android ,Dagger,Rxjava,JSON,REST , Android SDK', 'Computer Engineering,Computer Science,Network Engineering And Security,Software Engineering,English Language & Linguistics', 'Part time Unpaid', NULL, NULL, 'Jerash', 'Open', 78, 'Design and build advanced applications for the Android platform\r\nCollaborate with cross-functional teams to define, design, and ship new feature\r\nWork with outside data sources and APIs\r\nUnit-test code for robustness, including edge cases, usability, and general reliability\r\nWork on bug fixing and improving application performance\r\nContinuously discover, evaluate, and implement new technologies to maximize development efficiency', '2021-04-25 11:20:29', '2021-04-29 11:20:29'),
+(49, 'DIRECTOR - PROGRAM QUALITY', 'JobCoverPlaceholder.png', NULL, 'planning ,communication,management ,strategic', 'Midwifery,Computer Science,Arabic Language,English Language & Linguistics,Humanities,Applied Biological Sciences,Public Health,Paramedics,Dental Technology,Occupational Therapy,Clinical Rehabilitation Science', 'Full time Unpaid', NULL, NULL, 'Mafraq', 'Closed', 80, 'CARE Turkey is seeking an experienced and innovative Director, Program Quality (DPQ) who will be a member of CARE Turkey\'s CORE Management Team (CMT). The DPQ will assume overall responsibility, leadership, and management of the CO\'s Program Quality Unit. The DPQ is expected to provide strategic leadership in the areas of program development, monitoring and evaluation, and learning as well as crosscutting technical expertise.\r\n\r\nIn this role, the Director, Program Quality, will lead the development of a coherent approach and set priorities to advance CI\'s Global Vision and Mission and Regional and Country Office priorities. S/he will oversee program quality for both the Cross Border and Refugee Program including, Knowledge management, program design and development, and program quality: monitoring, evaluation, learning, and impact measurement.\r\n\r\nThe DPQ will contribute significantly to the Country Office\'s commitment to long-term, quality programming. S/he will be expected to lead technical improvements in program design and development to ensure quality and adherence to programming standards and CARE\'s programming principles and also manage a team of professionals focused on the design, funding, monitoring, and evaluation of programs and projects (including emergency programs), , research, advocacy and communications that is informed by lessons learned and realities on the ground.', '2021-04-29 11:22:59', '2021-04-29 11:22:59'),
+(51, 'COUNTRY DIRECTOR - HAITI', 'JobCoverPlaceholder.png', NULL, 'NGOs,MBA,MPH,strategist,Collaborative ,leadership', 'Industrial Engineering,Arabic Language,English Language & Linguistics,Humanities,Radiologic Technology,Dental Technology,Optometry,Occupational Therapy,Clinical Rehabilitation Science', 'Full time Unpaid', NULL, NULL, 'Mafraq', 'Open', 80, 'We’re looking for a strong leader for our Haiti team. Someone who can open doors to new partners and strengthen relationships with existing ones. Serve as CARE Haiti’s biggest ambassador and advocate for gender equity. Someone who can tell the CARE story and help us secure the funds to grow CARE’s impact. We need you to…\r\nDrive strategy. Develop the blueprint to guide CARE’s work in Haiti, driving innovation and impact at scale, and help shape the LAC regional strategy.\r\nLead the team. Guide a passionate team of program managers and operations experts.\r\nPromote CARE. Maintain strong relationships with government, partners and donors, such as the USAID, BHA, the World Bank, and European Union\r\nGrow the portfolio. Work with business development teams to identify, track and coordinate responses to funding opportunities. Develop partnerships that lead to new funding.\r\nMake sure we play by the rules. Serve as our chief compliance officer in Haiti. Ensure that we are ethical and efficient, that we have the procedures in place to be strong steward of donor funding and accountable to our partners and program participants.\r\nLead with integrity. Create a positive and productive workplace. One that values hard work, feedback and continuous improvement, diversity, inclusion and a strong commitment to CARE.', '2021-04-26 08:41:25', '2021-04-30 08:41:25'),
+(52, 'EDUCATION ADVISOR', 'JobCoverPlaceholder.png', NULL, 'Education,International Development,management ,strategies', 'Arabic Language,English Language & Linguistics,Humanities,Mathematics,Chemistry,Physics,Public Health,Occupational Therapy,Clinical Rehabilitation Science', 'Full time Paid', NULL, NULL, 'Mafraq', 'Open', 80, 'CARE is seeking an Education Advisor who will contribute to CARE’s priorities of developing academic abilities as well as leadership skills and other 21st century skills to boost students’ agency and consequently address barriers for equal participation - in class, in their communities, and beyond. CARE’s work brings together communities, schools and government partners to create gender-transformative, innovative, and sustainable solutions to ensure that marginalized children and adolescents, especially girls, are able to stay in school, succeed academically and personally and transition to meaningful engagement in society.', '2021-04-28 08:43:28', '2021-04-30 08:43:28'),
+(53, 'Fulton Bender', 'JobCoverPlaceholder.png', 'Natus quo voluptatem', '', 'Electrical Engineering,Industrial Engineering,Aeronautical Engineering,Nuclear Engineering,Doctor Of Pharmacy,Nursing,Arabic Language,Humanities,Paramedics,Radiologic Technology,Medical Laboratory Sciences,Allied Dental Sciences,Occupational Therapy,Audiology & Speech Pathology,Civil Engineering', 'Part time Unpaid', 'Voluptatibus in veni', NULL, 'Ajloun', 'Closed', 85, 'Nostrum dolorum iste', '2021-04-27 08:51:15', '2021-04-30 08:51:15'),
+(54, 'Software Engineer (Python)', 'JobCoverPlaceholder.png', NULL, 'Python ,Django,SQL', 'Computer Information Systems,Software Engineering', 'Full time Paid', NULL, NULL, 'Zarqa', 'Open', 77, 'As a software engineer within the MVD team you will help to maintain and extend our Python codebase that performs valuation of financial instruments. The successful candidate will also have the opportunity to participate in the design and architecture of extensions to our software stack, along with the chance to work on new/greenfield projects.', '2021-04-27 08:53:00', '2021-04-30 08:53:00'),
+(55, 'HR Services and Solutions Consultant / Senior Consultant', 'JobCoverPlaceholder.png', NULL, 'Proactivity,Advising,Coaching,Recruitment', 'Industrial Engineering,Computer Information Systems,English Language & Linguistics,Humanities', NULL, NULL, NULL, NULL, 'Open', 77, 'Point of contact for Workday related topics and enhancements with the Global teams\r\nSupport on local implementation, and also perform the integration of Workday data to related systems as required\r\nMaintain data accuracy by performing reconciliation and clean up as required\r\nGather and prepare Human Capital reports and surveys\r\nAssist in any other ad-hoc report request from internal and external clients\r\nAssist in basic analysis and summary of the generated data\r\nAdminister Human Capital systems\r\nAddresses operation issues and provides regular feedback to team members\r\nInvolve in reports automation and process review\r\nInvolve in projects as assigned', '2021-04-27 08:54:56', '2021-04-30 08:54:56'),
+(56, 'Microsoft Data Platform Developer', 'JobCoverPlaceholder.png', NULL, 'SQL ,DevOps,Visual Studio,Power BI,Excel,Python', 'Computer Engineering,Computer Science,Computer Information Systems,Network Engineering And Security,Software Engineering', 'Full time Paid', NULL, NULL, 'Amman', 'Open', 77, 'As a Developer in our Microsoft Apps team your impact will be seen by:\r\nAssisting in the delivery of proof of concepts built on the Azure Data Platform, Power BI and SQL Server Business Intelligence Solutions.\r\nThe technical delivery and implementation of data models, data transformation process and reporting.\r\nBeing part of delivery streams focusing on the delivery of the specific solution component allocated to your team.\r\nYour ability to delivery the work allocated to you on-time and within scope according to agreed best practices and using prescribed tools, frameworks and processes.\r\nYour ability to engage with diverse stakeholders to support data and analytics, process and system development\r\nPrevious experience on delivery projects which were delivered using Agile and Waterfall methodologies\r\nAbility to develop reports, dashboards & scorecards, data exploration and visual analytics using existing and emerging tools and technologies\r\nYour ability to demonstrate your experience in creating and maintaining detailed documentation.\r\nYour ability to work independently or as part of a team to design and develop solutions', '2021-04-28 08:57:17', '2021-04-30 08:57:17'),
+(57, 'Education Technical Specialist', 'JobCoverPlaceholder.png', NULL, 'Education ,NGO,representation,communication skills,humanitarian', 'English Language & Linguistics,Humanities,Applied Biological Sciences,orensic Sciences,Health Managment And Policy,Allied Dental Sciences', 'Full time Unpaid', NULL, NULL, 'Jerash', 'Open', 81, 'Represents Save the Children in Education Working Group/Cluster. Works with UNICEF, UNHCR and other key education actors to develop high quality sector strategy documents (HRP, HNO, 3RPetc.) and represents the sector in regional and national forums. This may involve taking on a co-chairing role where needs demand.\r\n* Work in close collaboration with education field team to ensure Save the Children representation at the education working group/cluster at Governorate levels.\r\n* Ensure that Save the Children\'s planning and work is coordinated with efforts of other agencies and Government, and take a leadership role within Interagency Coordination forums (including Education Cluster Strategic Advisory Group - SAG), ensuring the specific needs of children are being addressed.\r\n* In collaboration with Child Rights Governance, lead key policy and advocacy initiatives and turn these into action with local and national stakeholders feeding into international advocacy efforts.\r\n* Play a leadership role in shaping Education English and Arabic communications and media priorities in line with thematic priorities and collaborate with Communications, Advocacy and Program Operations to ensure quality communication products and visibility materials.\r\n* Take the initiative in linking global SCI resources with Country office, documenting lessons learnt, best practice and case studies to shape in-country strategies and programme approaches, and contribute to broader sector learning.', '2021-04-28 08:59:57', '2021-04-30 08:59:57'),
+(58, 'Book Development and Use Intern', 'JobCoverPlaceholder.png', NULL, ',humanitarian ,communication skills,representation', 'Humanities,Applied Biological Sciences,Animal Production,Natural Resources & Environment,Optometry', 'Full time Unpaid', NULL, NULL, 'Jerash', 'Open', 81, 'This position is on Child Safeguarding- Level 3: The post holder will have contact with children and/or young people either frequently (e.g. once a week or more) or intensively (e.g. four days in one month or more or overnight) because they work country programs. Or are visiting country programs; or because they are responsible for implementing the police checking/vetting process staff.\r\n\r\n\r\n\r\nANTI-HARASSMENT Policy\r\n\r\n\r\nWe are committed to ensuring a safe working environment for all those who work for us and for all those who come into contact with our staff and representatives, including children and members of the communities with whom we work.\r\n\r\n\r\n\r\nSCI takes a zero tolerance approach to sexual harassment and any other conduct that is discriminatory or disrespectful to others.', '2021-04-30 10:04:17', '2021-04-30 10:04:17'),
+(59, 'Oxfam Shop Volunteer', 'JobCoverPlaceholder.png', NULL, ',Health ,analytics,sales ,communicate clearly', 'Humanities,Mathematics,Physics,Health Managment And Policy', 'Part time Unpaid', NULL, NULL, 'Jerash', 'Open', 83, 'Our Shops\r\n\r\nWith a network of over 600 shops, our diverse volunteers play an integral role in championing Oxfam’s value, running the shops and promoting our life saving work to the wider community. Through the sales of donated goods and our ethical range of new products, Sourced by Oxfam, our shops raise millions of pound each year to fund our crucial work to end the injustice of poverty. Oxfam shops are at the forefront in campaigning for sustainable fashion and we are proud that no item of clothing donated to us finds its way to the landfill. Since it opened in 1974, all donated clothing items that do not sell in our shops are brought into our Wastesaver warehouse, where they are sorted and sent to various retail channels such as festival shops, specialist boutiques, Oxfam’s Online Shop or to our social enterprise project, Frip Ethique, in Senegal.\r\n\r\n\r\nWhy do we need you?\r\n\r\nOur shops would not be able to raise crucial funds for Oxfam’s emergency and development work all over the world without our dedicated volunteers, who provide their time and bring multitude of skills. In return, we offer personal development, valuable insight into charity retail and a friendly environment to meet new people.\r\n\r\n\r\nWhat are your key responsibilities?\r\n\r\nDepending on the needs of the shop and your interest, you may be involved in the following:\r\n\r\n• Using the shop’s guidelines to sort and price donated clothes, books, homewares etc.\r\n\r\n• Providing customer service on the shop floor.\r\n\r\n• Creating attractive displays across the shop.\r\n\r\n• Promoting our Gift Aid scheme.\r\n\r\n• Promoting our exciting sustainable fashion campaigns such as ‘Second-Hand September’.\r\n\r\n• Listing items on our online channels including Oxfam’s Online Shop.\r\n\r\n• Promoting our shops to the local community through social media.\r\n\r\n\r\nWhat skills and experience are we looking for?\r\n\r\nYou do not need specific skills and experience but the following would be useful:\r\n\r\n• Commitment to Oxfam’s values of empowerment, accountability and inclusiveness.\r\n\r\n• Ability to work within Oxfam’s policies and shop guidelines.\r\n\r\n• An interest in retail and customer service.\r\n\r\n• Ability to work well as part of a team and under own initiative.\r\n\r\n• Willingness to learn.', '2021-04-30 10:13:20', '2021-04-30 10:13:20'),
+(60, 'Income Analyst (Assistant Accountant)', 'JobCoverPlaceholder.png', NULL, ',spreadsheets ,organisational ,Analytical ,planning ,interpersonal ,Accounting', 'Electrical Engineering,Industrial Engineering,Nuclear Engineering,Computer Information Systems,Mathematics,Physics', 'Full time Paid', NULL, NULL, 'Irbid', 'Open', 83, NULL, '2021-04-30 10:16:10', '2021-04-30 10:16:10'),
+(61, 'Front End Developer', 'JobCoverPlaceholder.png', NULL, ',HTML,CSS,JavaScript,Ruby,Node,AWS Cloud', 'Computer Engineering,Computer Science,Software Engineering', 'Full time Paid', NULL, NULL, 'Amman', 'Open', 85, 'Are you an experienced front end application developer who can assist our Customers in delivering breakthrough experiences for their end users? Do you like to work on a variety of game changing projects, at the forefront of application development and cloud technology adoption? Would you like to enable some of the largest enterprises in the world transform how they design, develop, and launch new products?\r\n\r\nAWS Professional Services is looking for highly talented, hands-on front-end developers to help accelerate our growing Professional Services business. This is an excellent opportunity to join Amazon’s technical teams, working with experienced engineers while also developing your skills and furthering your career within an innovative and progressive technology companies.\r\n\r\nYou will work with our Customers, Partners and fellow AWS Consultants in small teams. You will learn a broad range of AWS services and how they integrate with 3rd party tools into enterprise grade solutions. We will help you get certified. You will learn how to guide Customers in developing scalable applications with rich user experiences. You will also help Customer teams build deep software development knowledge with respect to front end architecture, UX/UI design, and programming as well as advising and implementing AWS best practices. You could also leave your mark by leading internal initiatives or contributing to new AWS services.', '2021-04-30 10:18:37', '2021-04-30 10:18:37'),
+(62, 'Software Development Engineer', 'JobCoverPlaceholder.png', NULL, ',Angular JS,Ember JS,Object Oriented,UI/UX design,Dojo', 'Computer Engineering,Computer Science,Computer Information Systems,Software Engineering', NULL, NULL, NULL, NULL, 'Open', 85, 'As customers’ in-memory workloads are growing, their need to scale ElastiCache clusters automagically is also growing which then requires scalable web services, improved security and a simple, yet intuitive console. We are currently looking for an experienced front end developer to build an intuitive console interface for our customers. Are you passionate about front end technologies and keen to work on full-stack development? We are looking for smart and motivated front end engineers who are passinoate about building world class customer experience to not only improve the current console experience but also help shape up new experiences for our customers to use ElastiCache.\r\n\r\nIf you have the skills for building low latency, high throughput, customer-friendly products that delight customers, and are interested in cutting-edge cloud computing, this is the job for you.\r\n\r\nSuccessful candidates for this position will have a strong background in building web applications using current technologies such as HTML5, JavaScript and CSS and web-UI frameworks like jQuery, React, Flux etc. Working with Web Services, JSON, Apache/Tomcat services is desired.\r\n\r\nEqually important to these specific skills are a candidate\'s ability to multi-task, quickly adapt to new development environments and changing business requirements, learn new systems, and create reliable/maintainable code. Successful candidates will also propose ideas for the future of the space and get to shape the roadmap.', '2021-04-30 10:20:13', '2021-04-30 10:20:13'),
+(63, 'Solutions Architect I Intern', 'JobCoverPlaceholder.png', NULL, ',AWS Educate,Database,Big Data,IoT', 'Computer Engineering,Computer Science,Software Engineering', NULL, NULL, NULL, 'Zarqa', 'Open', 85, 'As an Associate Solutions Architect Intern, you will receive deep dive training in modern infrastructure design and management. Training opportunities will include comprehensive training programs and multi-day classroom courses, with opportunities to achieve industry-respected certifications. Throughout the placement, you will be exposed to relevant real-world challenges of different organizations.\r\n\r\nResponsibilities\r\n\r\nIf successful, you will design, evaluate and communicate reference technical solutions in partnership with veteran AWS Solutions Architects and AWS Account Managers. The ability to demonstrate measurable business value against the latest technology best practices and ability to reason about both high- and low-levels of architectural solutions is essential for a future career in IT.\r\nPrepare answers and designs for real-world technical questions and challenges in collaboration with Solutions Architects\r\nShadow phone conversations and face to face meetings between Solutions Architects and AWS customers.\r\nProduce a deliverable project for an AWS customer that involves building solutions in the AWS platform', '2021-04-30 10:21:43', '2021-04-30 10:21:43');
 
---
--- Indexes for table `positions`
---
-ALTER TABLE `positions`
-  ADD PRIMARY KEY (`position_id`),
-  ADD KEY `positions_user_id_foreign` (`User_id`);
 
---
--- Indexes for table `reports`
---
-ALTER TABLE `reports`
-  ADD PRIMARY KEY (`id`);
+INSERT INTO `reports` (`id`, `Date`, `time`, `page`, `pageLink`, `describe`, `device`, `OS`, `browser`, `version`, `else`, `email`, `created_at`, `updated_at`) VALUES
+(2, NULL, 'Id voluptas irure d', 'Adipisicing amet no', 'Aliquid modi aliqua', 'Quibusdam aut harum', 'Laptop', 'Mac', 'Samsung Internet', 'Quis quaerat cillum', 'Unde ipsum consequu', 'pyvez@mailinator.com', '2021-04-27 20:49:56', '2021-04-27 20:49:56'),
+(3, NULL, 'Nam vero qui qui vol', 'Cum qui alias dolore', 'Sit quo velit labor', 'Sit saepe quidem an', 'Desktop computer', 'Linux', 'Firefox', 'Voluptatibus laborio', 'Officia exercitation', 'tymasyhol@mailinator.com', '2021-04-27 20:50:06', '2021-04-27 20:50:06'),
+(4, NULL, 'Aut voluptatem Impe', 'Quae molestias labor', 'Aliquid rerum qui ex', 'Tempor delectus ape', 'Laptop', 'Windows', 'Samsung Internet', 'Commodi suscipit nul', 'Officia veniam anim', 'wicinumyk@mailinator.com', '2021-04-27 20:50:14', '2021-04-27 20:50:14'),
+(5, NULL, 'Eaque amet dolorem', 'Dolor enim voluptate', 'Anim quae incidunt', 'Suscipit ipsa eaque', 'Desktop computer', 'Linux', 'Opera', 'Consectetur asperio', 'Aut quaerat qui beat', 'pegihydiwi@mailinator.com', '2021-04-27 20:51:04', '2021-04-27 20:51:04'),
+(6, NULL, 'Modi laboriosam in', 'Ad exercitationem an', 'Quas aperiam qui mag', 'Voluptas id velit n', 'Tablet', 'Android', 'Safari', 'Eiusmod sit nostrud', 'Quae voluptatum qui', 'cykybaxo@mailinator.com', '2021-04-27 23:55:15', '2021-04-27 23:55:15'),
+(7, NULL, 'Consequatur volupta', 'Qui ducimus vitae c', 'Et quas reprehenderi', 'Aperiam hic qui proi', 'Phone', 'Android', 'Firefox', 'Reiciendis sunt sit', 'Enim perferendis arc', 'soqixaxiw@mailinator.com', '2021-04-28 15:20:15', '2021-04-28 15:20:15'),
+(8, NULL, 'Sunt laudantium exp', 'Quisquam cupidatat i', 'Dolores enim non dol', 'Debitis repudiandae', 'Phone', 'Linux', 'Brave', 'Quia culpa repellen', 'Cillum enim facere a', 'kugafod@mailinator.com', '2021-04-29 11:29:02', '2021-04-29 11:29:02');
 
---
--- Indexes for table `testimonials`
---
-ALTER TABLE `testimonials`
-  ADD PRIMARY KEY (`testimonial_id`),
-  ADD KEY `testimonials_user_id_foreign` (`User_id`);
 
---
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`user_id`),
-  ADD UNIQUE KEY `users_email_unique` (`email`),
-  ADD KEY `users_major_id_foreign` (`major_id`);
+INSERT INTO `testimonials` (`testimonial_id`, `name`, `image`, `title`, `text`, `User_id`, `created_at`, `updated_at`) VALUES
+(3, 'Ahmed E3mar', '16197320201619647875Screenshot_20210321-163544_Gallery.jpg', 'Full-Stack web developer', 'Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate one-to-one customer service with robust ideas. Dynamically innovate resource-leveling customer service for state of the art.', NULL, '2021-04-28 09:00:27', '2021-04-29 18:33:40'),
+(4, 'Hanan S. Al-Nimry', '16197320361619647096IMG_20210404_115002.jpg', 'Civil Engineering Professor', 'Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate one-to-one customer service with robust ideas. Dynamically innovate resource-leveling customer service for state of the art.', NULL, '2021-04-28 09:02:55', '2021-04-29 18:33:56'),
+(5, 'Khadeejah Hamdan', '16197320671619646794Dana_Toughoj.jpg', 'Expert Lead Trainer', 'Completely synergize resource taxing relationships via premier niche markets. Professionally cultivate one-to-one customer service with robust ideas. Dynamically innovate resource-leveling customer service for state of the art.', NULL, '2021-04-28 09:08:49', '2021-04-29 18:34:27'),
+(6, 'David Peterson', '16197320911619646671Ashraf_Al_Jabari.jpg', 'Freelancer', 'Collaboratively administrate turnkey channels whereas virtual e-tailers. Objectively seize scalable metrics whereas proactive e-services. Seamlessly empower fully researched growth strategies and interoperable sources.', NULL, '2021-04-28 09:09:26', '2021-04-29 18:34:51'),
+(7, 'Osama ahmed', '16197321101619648164mohammad.png', 'QC Manager', 'Efficiently unleash cross-media information without cross-media value. Quickly maximize timely deliverables for real-time schemas. Dramatically maintain clicks-and-mortar solutions without functional solutions.', NULL, '2021-04-28 09:10:39', '2021-04-29 18:35:10');
 
---
--- AUTO_INCREMENT for dumped tables
---
 
---
--- AUTO_INCREMENT for table `applications`
---
-ALTER TABLE `applications`
-  MODIFY `application_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
---
--- AUTO_INCREMENT for table `contacts`
---
-ALTER TABLE `contacts`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+INSERT INTO `applications` (`application_id`, `coverLetter`, `attachment`, `status`, `User_id`, `Position_id`, `created_at`, `updated_at`) VALUES
+(31, 'Please accept me', NULL, 'Pending', 57, 44, '2021-04-29 11:23:47', '2021-04-29 11:23:47'),
+(32, 'Pleeeeas', NULL, 'Pending', 58, 44, '2021-04-29 11:24:04', '2021-04-29 11:24:04'),
+(33, NULL, NULL, 'Pending', 62, 45, '2021-04-29 11:24:18', '2021-04-29 11:24:18'),
+(34, 'Obcaecati vero ullam', NULL, 'Accepted', 65, 47, '2021-04-29 11:24:24', '2021-04-29 11:24:24'),
+(35, 'Culpa soluta illum', NULL, 'Pending', 66, 49, '2021-04-29 11:24:27', '2021-04-29 11:24:27'),
+(36, 'Illo totam et iure v', NULL, 'Accepted', 86, 48, '2021-04-29 11:24:31', '2021-04-29 11:24:31'),
+(37, 'Qui quis dolore est', NULL, 'Rejected', 65, 45, '2021-04-29 11:24:34', '2021-04-29 11:24:34'),
+(38, 'Consequatur Enim pr', NULL, 'Rejected', 61, 46, '2021-04-29 11:24:37', '2021-04-29 11:24:37'),
+(39, 'Dignissimos enim tem', NULL, 'Pending', 70, 49, '2021-04-29 11:24:41', '2021-04-29 11:24:41'),
+(40, 'Amet natus modi ea', NULL, 'Accepted', 62, 47, '2021-04-29 11:24:44', '2021-04-29 11:24:44'),
+(41, 'Libero suscipit quos', NULL, 'Pending', 73, 44, '2021-04-29 11:24:47', '2021-04-29 11:24:47'),
+(42, 'Ut maxime tempor qui', NULL, 'Rejected', 66, 46, '2021-04-29 11:24:50', '2021-04-29 11:24:50'),
+(43, 'Eum cupidatat dolore', NULL, 'Pending', 70, 44, '2021-04-29 11:24:53', '2021-04-29 11:24:53');
 
---
--- AUTO_INCREMENT for table `failed_jobs`
---
-ALTER TABLE `failed_jobs`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `majors`
---
-ALTER TABLE `majors`
-  MODIFY `major_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
-
---
--- AUTO_INCREMENT for table `migrations`
---
-ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
-
---
--- AUTO_INCREMENT for table `positions`
---
-ALTER TABLE `positions`
-  MODIFY `position_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
-
---
--- AUTO_INCREMENT for table `reports`
---
-ALTER TABLE `reports`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- AUTO_INCREMENT for table `testimonials`
---
-ALTER TABLE `testimonials`
-  MODIFY `testimonial_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `user_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `applications`
---
-ALTER TABLE `applications`
-  ADD CONSTRAINT `applications_position_id_foreign` FOREIGN KEY (`Position_id`) REFERENCES `positions` (`position_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `applications_user_id_foreign` FOREIGN KEY (`User_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `positions`
---
-ALTER TABLE `positions`
-  ADD CONSTRAINT `positions_user_id_foreign` FOREIGN KEY (`User_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `testimonials`
---
-ALTER TABLE `testimonials`
-  ADD CONSTRAINT `testimonials_user_id_foreign` FOREIGN KEY (`User_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `users`
---
-ALTER TABLE `users`
-  ADD CONSTRAINT `users_major_id_foreign` FOREIGN KEY (`major_id`) REFERENCES `majors` (`major_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

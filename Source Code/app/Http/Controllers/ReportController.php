@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Report;
+use App\manage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -16,14 +17,21 @@ class ReportController extends Controller
      */
     public function index()
     {
+                $manages = manage::where("id" , '=' , '1')->get();
+        $manage = [];
+        foreach ($manages as $thismanage) {
+            $manage = $thismanage ;
+        }
+
+
         if (!(Auth::check())) {
             return redirect('/login')->with('info', 'Login first!');
         }
         if (Auth::user()->type != 'admin') {
-            return view('public.403');
+            return view('public.403' , compact( 'manage'));
         }
         $reports = Report::all();
-        return view('admin.show.reports', compact('reports'));
+        return view('admin.show.reports', compact('reports' , compact( 'manage')));
     }
 
     /**
@@ -105,13 +113,20 @@ class ReportController extends Controller
      */
     public function destroy(Request $request)
     {
+                $manages = manage::where("id" , '=' , '1')->get();
+        $manage = [];
+        foreach ($manages as $thismanage) {
+            $manage = $thismanage ;
+        }
+
+
         $report = DB::table('reports')->where('id', $request->id);
 
         if (!(Auth::check())) {
             return redirect('/login')->with('info', 'Login first!');
         }
         if (Auth::user()->type != 'admin') {
-            return view('public.403');
+            return view('public.403' , compact( 'manage'));
         }
 
         $report->delete();

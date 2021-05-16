@@ -1,31 +1,31 @@
 /* ------------------------------------------------------------------- */
-/* #9237cb (146,55,203)
+/* #c47821 (146,55,203)
 ---------------------------------------------------------------------- */
 .numbered.color ol > li::before {
-     border:1px solid #9237cb;
-     color:#9237cb;
+     border:1px solid #c47821;
+     color:#c47821;
 }
  .numbered.color.filled ol > li::before {
-     border:1px solid #9237cb;
-     background-color:#9237cb;
+     border:1px solid #c47821;
+     background-color:#c47821;
 }
  .radio input[type="radio"]:checked + label .radio-label {
-     background-color:#9237cb;
-     border-color:#9237cb;
+     background-color:#c47821;
+     border-color:#c47821;
 }
  .checkbox input:checked + label span.checkbox-icon {
-     background-color:#9237cb;
-     border-color:#9237cb;
+     background-color:#c47821;
+     border-color:#c47821;
 }
  .slider-handle {
-     border:2px solid #9237cb;
+     border:2px solid #c47821;
 }
  .infoBox-close:hover {
      color:#fff;
-     background-color:#9237cb;
+     background-color:#c47821;
 }
  .message-bubble.me .message-text:before {
-     border-left:6px solid #9237cb;
+     border-left:6px solid #c47821;
 }
  a,
  .header-widget .log-in-button:hover i,
@@ -81,7 +81,7 @@
  .help-icon,
  .header-widget .log-in-button:hover,
  .header-widget .log-in-button:hover i {
-     color:#9237cb;
+     color:#c47821;
 }
 #backtotop a,
  .header-notifications-trigger span,
@@ -148,7 +148,10 @@
  .messages-inbox ul li:before,
  .message-by h5 i,
  .message-bubble.me .message-text {
-     background-color:#9237cb;
+     background-color:#c47821;
+}
+.keyword-input-container2 .keyword-input-button2 {
+    background-color:#c47821;
 }
  .transparent-header #navigation > ul li:hover ul li:hover a:after,
  .transparent-header #navigation > ul li:hover a:after,
@@ -165,80 +168,80 @@
  .slick-prev:hover,
  .slick-next:hover,
  .bootstrap-select.btn-group .bs-actionsbox div button:hover {
-     background:#9237cb;
+     background:#c47821;
 }
  .uploadButton .uploadButton-button,
  .pricing-plan .button {
-     color:#9237cb;
-     border:1px solid #9237cb;
+     color:#c47821;
+     border:1px solid #c47821;
 }
  .payment-tab-trigger > input:checked ~ label::before,
  .dashboard-nav ul li.active-submenu,
  .dashboard-nav ul li.active,
  .dashboard-nav ul li:hover {
-     border-color:#9237cb;
+     border-color:#c47821;
 }
 
  #navigation ul ul.dropdown-nav ul.dropdown-nav li:hover a:after,
   #navigation ul ul.dropdown-nav li:hover a:after, 
   #navigation ul li:hover a:after {
-     background: rgba(146,55,203,0.13);
+     background: rgba(179, 129, 37, 0.13);
 }
 
  #navigation ul li a.current:after {
-     background: rgba(146,55,203,0.13);
+     background: rgba(179, 129, 37, 0.13);
 }
  .pagination ul li a.current-page {
-     box-shadow: 0 2px 8px rgba(146,55,203,0.25) 
+     box-shadow: 0 2px 8px rgba(179, 129, 37,0.25) 
 }
  .sidebar-search-button-container button {
-     box-shadow: 0 4px 12px rgba(146,55,203,0.1);
+     box-shadow: 0 4px 12px rgba(179, 129, 37,0.1);
 }
  .sidebar-search-button-container button:hover {
-     box-shadow: 0 4px 12px rgba(146,55,203,0.25);
+     box-shadow: 0 4px 12px rgba(179, 129, 37,0.25);
 }
  .job-listing.with-apply-button:hover .list-apply-button {
-     box-shadow: 0 4px 12px rgba(146,55,203,0.15);
+     box-shadow: 0 4px 12px rgba(179, 129, 37,0.15);
 }
  .task-listing-bid-inner .button {
-     box-shadow: 0 4px 12px rgba(146,55,203,0.15);
+     box-shadow: 0 4px 12px rgba(179, 129, 37,0.15);
 }
  .task-listing-bid-inner .button:hover {
-     box-shadow: 0 4px 12px rgba(146,55,203,0.25);
+     box-shadow: 0 4px 12px rgba(179, 129, 37,0.25);
 }
  .task-tags span {
-     background-color: rgba(146,55,203,.07);
+     background-color: rgba(179, 129, 37,.07);
 }
  .freelancers-grid-layout .freelancer-details a.button {
-     box-shadow: 0 4px 12px rgba(146,55,203,0.1);
+     box-shadow: 0 4px 12px rgba(179, 129, 37,0.1);
 }
  .freelancer-details a.button:hover {
-     box-shadow: 0 4px 12px rgba(146,55,203,0.2);
+     box-shadow: 0 4px 12px rgba(179, 129, 37,0.2);
 }
  .freelancers-list-layout .freelancer-details a.button {
-     box-shadow: 0 4px 12px rgba(146,55,203,0.15);
+     box-shadow: 0 4px 12px rgba(179, 129, 37,0.15);
 }
  .freelancers-list-layout .freelancer-details a.button:hover {
-     box-shadow: 0 4px 12px rgba(146,55,203,0.25);
+     box-shadow: 0 4px 12px rgba(179, 129, 37,0.25);
 }
  .letters-list a.current {
-     box-shadow: 0 2px 8px rgba(146,55,203,0.25);
+     box-shadow: 0 2px 8px rgba(179, 129, 37,0.25);
 }
  span.button, button.button, input[type="button"], input[type="submit"], a.button {
-     box-shadow: 0 4px 12px rgba(146,55,203,0.15);
+     box-shadow: 0 4px 12px rgba(179, 129, 37,0.15);
 }
  .move-on-hover {
-     box-shadow: 0 4px 12px rgba(146,55,203,0.1);
+     box-shadow: 0 4px 12px rgba(179, 129, 37,0.1);
 }
  .move-on-hover:hover {
-     box-shadow: 0 4px 12px rgba(146,55,203,0.2);
+     box-shadow: 0 4px 12px rgba(179, 129, 37,0.2);
 }
  .keyword {
-     background-color: rgba(146,55,203,0.07);
+     background-color: rgba(179, 129, 37,0.07);
 }
  @keyframes switch-shadow-color {
      0% {
-         box-shadow: 0 0 0 0 rgba(146,55,203,0.6);
+         box-shadow: 0 0 0 0 rgba(179, 129, 37,0.6);
     }
      100% {
          box-shadow: 0 0 0px 10px rgba(0,0,0,0);
@@ -246,115 +249,115 @@
 }
  @keyframes radius-shadow {
      0% {
-         box-shadow: 0 0 0 0 rgba(146,55,203,0.4);
+         box-shadow: 0 0 0 0 rgba(179, 129, 37,0.4);
     }
      100% {
          box-shadow: 0 0 0 10px rgba(0,0,0,0);
     }
 }
  .uploadButton .uploadButton-button {
-     box-shadow: 0 3px 10px rgba(146,55,203,0.1);
+     box-shadow: 0 3px 10px rgba(179, 129, 37,0.1);
 }
  .uploadButton .uploadButton-button:hover {
-     box-shadow: 0 4px 12px rgba(146,55,203,0.15);
+     box-shadow: 0 4px 12px rgba(179, 129, 37,0.15);
 }
  .category-box:hover {
-     box-shadow: 0 4px 12px rgba(146,55,203,0.2);
+     box-shadow: 0 4px 12px rgba(179, 129, 37,0.2);
 }
  .photo-box:hover {
-     box-shadow: 0 4px 12px rgba(146,55,203,0.25);
+     box-shadow: 0 4px 12px rgba(179, 129, 37,0.25);
 }
  .recommended .pricing-plan-label {
-     background-color: rgba(146,55,203,0.06);
+     background-color: rgba(179, 129, 37,0.06);
 }
  .pricing-plan .button:hover, .pricing-plan.recommended .button {
-     box-shadow: 0 4px 12px rgba(146,55,203,0.15);
+     box-shadow: 0 4px 12px rgba(179, 129, 37,0.15);
 }
  .pricing-plan .button {
-     box-shadow: 0 4px 12px rgba(146,55,203,0.1);
+     box-shadow: 0 4px 12px rgba(179, 129, 37,0.1);
 }
  .pricing-plan .button:hover {
-     box-shadow: 0 4px 12px rgba(146,55,203,0.15);
+     box-shadow: 0 4px 12px rgba(179, 129, 37,0.15);
 }
  .breathing-icon {
-     box-shadow: 0 0 0 15px rgba(146,55,203,0.07);
+     box-shadow: 0 0 0 15px rgba(179, 129, 37,0.07);
 }
  @keyframes bicokAnim {
      0%,100% {
-         box-shadow: 0 0 0 15px rgba(146,55,203,0.07);
+         box-shadow: 0 0 0 15px rgba(179, 129, 37,0.07);
     }
      50% {
-         box-shadow: 0 0 0 28px rgba(146,55,203,0.12);
+         box-shadow: 0 0 0 28px rgba(179, 129, 37,0.12);
     }
 }
  .icon-box-check {
-     box-shadow: 0 0 0 5px rgba(146,55,203,0.1);
+     box-shadow: 0 0 0 5px rgba(179, 129, 37,0.1);
 }
  @keyframes checkAnim {
      0%,100% {
-         box-shadow: 0 0 0 5px rgba(146,55,203,0.15);
+         box-shadow: 0 0 0 5px rgba(179, 129, 37,0.15);
     }
      50% {
-         box-shadow: 0 0 0 8px rgba(146,55,203,0.15);
+         box-shadow: 0 0 0 8px rgba(179, 129, 37,0.15);
     }
 }
  .testimonial-author span {
-     box-shadow: 0 2px 10px rgba(146,55,203,0.25);
+     box-shadow: 0 2px 10px rgba(179, 129, 37,0.25);
 }
  .bidding-widget .button {
-     box-shadow: 0 4px 12px rgba(146,55,203,0.15);
+     box-shadow: 0 4px 12px rgba(179, 129, 37,0.15);
 }
  .bidding-widget .button:hover {
-     box-shadow: 0 4px 12px rgba(146,55,203,0.25);
+     box-shadow: 0 4px 12px rgba(179, 129, 37,0.25);
 }
  .dialog-with-tabs .button {
-     box-shadow: 0 4px 12px rgba(146,55,203,0.15);
+     box-shadow: 0 4px 12px rgba(179, 129, 37,0.15);
 }
  .slider-handle:after {
-     box-shadow: 0 0 0px 6px rgba(146,55,203,.12);
+     box-shadow: 0 0 0px 6px rgba(179, 129, 37,.12);
 }
  .slider-handle:hover:after {
-     box-shadow: 0 0 0px 8px rgba(146,55,203,.12);
+     box-shadow: 0 0 0px 8px rgba(179, 129, 37,.12);
 }
  .dropdown-menu > li > a:hover, .dropdown-menu > .active > a, .dropdown-menu > .active > a:hover {
-     background-color: rgba(146,55,203,0.07);
+     background-color: rgba(179, 129, 37,0.07);
 }
  @keyframes clusterAnimation {
      0%,100% {
-         box-shadow: 0 0 0 6px rgba(146,55,203,0.15);
+         box-shadow: 0 0 0 6px rgba(179, 129, 37,0.15);
     }
      50% {
-         box-shadow: 0 0 0 10px rgba(146,55,203,0.15);
+         box-shadow: 0 0 0 10px rgba(179, 129, 37,0.15);
     }
 }
  @keyframes markerAnimation {
      0%,100% {
-         box-shadow: 0 0 0 6px rgba(146,55,203,0.15);
+         box-shadow: 0 0 0 6px rgba(179, 129, 37,0.15);
     }
      50% {
-         box-shadow: 0 0 0 8px rgba(146,55,203,0.15);
+         box-shadow: 0 0 0 8px rgba(179, 129, 37,0.15);
     }
 }
  a.apply-now-button {
-     box-shadow: 0 2px 8px rgba(146,55,203,0.15);
+     box-shadow: 0 2px 8px rgba(179, 129, 37,0.15);
 }
  a.apply-now-button:hover {
-     box-shadow: 0 2px 8px rgba(146,55,203,0.35);
+     box-shadow: 0 2px 8px rgba(179, 129, 37,0.35);
 }
  .dashboard-nav ul li.active-submenu, .dashboard-nav ul li.active, .dashboard-nav ul li:hover {
-     background-color: rgba(146,55,203,0.04);
+     background-color: rgba(179, 129, 37,0.04);
 }
  .dashboard-nav ul li.active-submenu a:after, .dashboard-nav ul li.active a:after, .dashboard-nav ul li:hover a:after {
-     background: rgba(146,55,203,0.13);
+     background: rgba(179, 129, 37, 0.13);
 }
  .dashboard-box-list .button {
-     box-shadow: 0 3px 8px rgba(146,55,203,0.15);
+     box-shadow: 0 3px 8px rgba(179, 129, 37,0.15);
 }
  .dashboard-box .button.dark:not(.ico):hover {
-     box-shadow: 0 3px 8px rgba(146,55,203,0.15);
+     box-shadow: 0 3px 8px rgba(179, 129, 37,0.15);
 }
 
  #navigation ul ul.dropdown-nav ul.dropdown-nav li:hover a:after,
  #navigation ul ul.dropdown-nav li:hover a:after {
-     background-color:#9237cb;
+     background-color:#c47821;
  }

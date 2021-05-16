@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use App\manage;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -37,4 +37,19 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    public function showLoginForm()
+{
+    $manages = manage::where("id" , '=' , '1')->get();
+    $manage = [];
+    foreach ($manages as $thismanage) {
+        $manage = $thismanage ;
+    }
+
+    $title = 'Login';
+
+    return view('auth.login', compact('title' , 'manage' ));
+}
+
+
 }

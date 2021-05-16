@@ -12,14 +12,14 @@
 			
 			<!-- Dashboard Headline -->
 			<div class="dashboard-headline">
-				<h3>add a Major</h3>
+				<h3>edit a Major</h3>
 
 				<!-- Breadcrumbs -->
 				<nav id="breadcrumbs" class="dark">
 					<ul>
 						<li><a href="/">Home</a></li>
 						<li><a href="{{"/admin/dashboard"}}">Dashboard</a></li>
-						<li>add Major</li>
+						<li>edit Major</li>
 					</ul>
 				</nav>
 			</div>
@@ -32,15 +32,15 @@
 					<div class="dashboard-box margin-top-0">
 						<!-- Headline -->
 						<div class="headline">
-							<h3><i class="icon-feather-folder-plus"></i> Major Submission Form</h3>
+							<h3><i class="icon-feather-folder-plus"></i> Major edit Form</h3>
 						</div>
 					
-					<form action="/admin/major/{{$major->major_id}}/update" method="post" enctype="multipart/form-data">
+					<form id="addUser" action="/admin/major/{{$major->major_id}}/update" method="post" enctype="multipart/form-data">
 						{{ csrf_field() }}
 						@method('PATCH')
 						<div class="content with-padding padding-bottom-10">
 							<div class="row">
-
+								{{-- name --}}
 								<div class="col-xl-4">
 									<div class="submit-field">
 										<h5>Major name</h5>
@@ -50,15 +50,152 @@
 									@endif
 									</div>
 								</div>
+								{{-- Ename --}}
 								<div class="col-xl-4">
 									<div class="submit-field">
-										<h5>Major College</h5>
-										<input type="text" class="with-border" name="College" value="{{$major->College}}" >
-										@if ($errors->has('College'))
-										<div class="text-danger">{{ $errors->first('College') }}</div>
+										<h5>English name</h5>
+										<input type="text" class="with-border" name="Ename" value="{{$major->Ename}}">
+										@if ($errors->has('Ename'))
+										<div class="text-danger">{{ $errors->first('Ename') }}</div>
+										@endif
+									</div>
+								</div>
+								{{-- college_id  --}}
+								<div class="col-xl-4">
+									<div class="submit-field">
+										<h5> major college</h5>
+										<select class="selectpicker with-border" id="majorSelect" data-live-search="true" name="college_id" data-size="4" value="{{$major->major}}" title="Select major college">
+											<option disabled value='select college'>select college</option>
+											@foreach ($colleges as $college)
+											@if ($major->college_id == $college->college_id )
+											<option selected value={{$college->college_id}}>{{$college->name}}</option>
+											@else
+											<option value={{$college->college_id}}>{{$college->name}}</option>
+											@endif
+											@endforeach
+										</select>
+										@if ($errors->has('college_id'))
+										<div class="text-danger">{{ $errors->first('college_id') }}</div>
+										@endif
+									</div>
+								</div>								
+							{{-- Profile Image --}}
+							<div class=" col-xl-4 addImage">
+								<div id="profile" class="image " style="background-image: url({{asset("assets/images/profile/$major->image")}})" >
+								<div class="dashes"></div>
+								<label style="color: #fff ; text-shadow : 0 0 3px #333" >Change</label>
+								</div>
+								<p class="addProfile" >Profile image</p>
+								<input type="file" id="mediaFile" name="profile" class="mediaFile" />
+							</div>
+							{{-- cover Image --}}
+							<div class=" col-xl-4 addImage">
+								<div id="cover" class="image " style="background-image: url({{asset("assets/images/profile/$major->cover")}})" >
+								<div class="dashes"></div>
+								<label style="color: #fff ; text-shadow : 0 0 3px #333">Change</label>
+								</div>
+								<p>Cover image</p>
+								<input type="file" id="mediaFileCover" name="cover" class="mediaFile"  />
+							</div>
+								{{-- just a space --}}
+								<div class="col-xl-4">
+									<div class="submit-field">
+									</div>
+								</div>								
+								{{-- title --}}
+								<div class="col-xl-4">
+									<div class="submit-field">
+										<h5>title <i class="help-icon" data-tippy-placement="right" title="For SEO"></i></h5>
+										<input type="text" class="with-border" name="title" value="{{$major->title}}">
+										@if ($errors->has('title'))
+										<div class="text-danger">{{ $errors->first('title') }}</div>
+										@endif
+									</div>
+								</div>
+								{{-- keywords --}}
+								<div class="col-xl-4">
+									<div class="submit-field">
+										<h5>keywords <i class="help-icon" data-tippy-placement="right" title="For SEO"></i></h5>
+										<div class="keywords-container">
+											<div class="keyword-input-container">
+												<input type="text" class="keyword-input with-border" placeholder="e.g. program, soft skill" />
+												<button class="keyword-input-button ripple-effect"><i class="icon-material-outline-add"></i></button>
+											</div>
+											<input type="hidden" id="hiddenInput" name="keywords" class="hiddenValue">
+											<p class="hiddenValue hiddenElement" id="skills"> {{$major->keywords}} </p>
+											<div class="keywords-list">
+												@foreach ($keywords as $keyword)
+												@if ($keyword != '')
+												<span class='keyword'><span class='keyword-remove'></span><span class='keyword-text'>{{$keyword}}</span></span>
+												@endif
+
+												@endforeach
+												<!-- keywords go here -->
+											</div>
+											<div class="clearfix"></div>
+										</div>
+
+									</div>
+								</div>
+								{{-- description  --}}
+								<div class="col-xl-4">
+									<div class="submit-field">
+										<h5> description  <i class="help-icon" data-tippy-placement="right" title="For SEO"></i></h5>
+										<input max="250" type="text" class="with-border" name="description" value="{{$manage->description}}" required>
+										@if ($errors->has('description'))
+										<div class="text-danger">{{ $errors->first('description') }}</div>
 									@endif
 									</div>
 								</div>
+								{{-- references  --}}
+								<div class="col-xl-12">
+									<div class="submit-field">
+										<h5>references</h5>
+										<textarea name="references" class="tinymce">{{$major->references}}</textarea>
+									</div>
+								</div>								
+								{{-- about  --}}
+								<div class="col-xl-12">
+									<div class="submit-field">
+										<h5>about</h5>
+										<textarea name="about" class="tinymce">{{$major->about}}</textarea>
+									</div>
+								</div>								
+								{{-- sectors  --}}
+								<div class="col-xl-12">
+									<div class="submit-field">
+										<h5>sectors</h5>
+										<textarea name="sectors" class="tinymce">{{$major->sectors}}</textarea>
+									</div>
+								</div>								
+								{{-- skills  --}}
+								<div class="col-xl-12">
+									<div class="submit-field">
+										<h5>skills</h5>
+										<textarea name="skills" class="tinymce">{{$major->skills}}</textarea>
+									</div>
+								</div>								
+								{{-- courses  --}}
+								<div class="col-xl-12">
+									<div class="submit-field">
+										<h5>courses</h5>
+										<textarea name="courses" class="tinymce">{{$major->courses}}</textarea>
+									</div>
+								</div>								
+								{{-- findJob  --}}
+								<div class="col-xl-12">
+									<div class="submit-field">
+										<h5>findJob</h5>
+										<textarea name="findJob" class="tinymce">{{$major->findJob}}</textarea>
+									</div>
+								</div>								
+								{{-- education  --}}
+								<div class="col-xl-12">
+									<div class="submit-field">
+										<h5>education</h5>
+										<textarea name="education" class="tinymce">{{$major->education}}</textarea>
+									</div>
+								</div>								
 
 							</div>
 						</div>
@@ -66,7 +203,7 @@
 				</div>
 
 				<div class="col-xl-12">
-					<button type="submit" class="button ripple-effect big margin-top-30"><i class="icon-line-awesome-pencil-square"></i> Update</button>
+					<button type="submit" class="button ripple-effect big margin-top-30 margin-bottom-30" id="submitButton"><i class="icon-line-awesome-pencil-square"></i> Update</button>
 				</div>
 			</form>
 
@@ -75,5 +212,30 @@
 
 		</div>
 	</div>
+
+	
+<script>
+	var submit = false;
+	$('#submitButton').on("click", function() {
+		submit = true;
+		document.getElementById("hiddenInput").value = document.getElementById("skills").innerText;
+
+		$('#addUser').submit();
+	});
+
+	$('#addUser').submit(function() {
+
+		if (submit == false)
+			return false;
+		else
+			return true;
+	});
+
+
+	$('#mediaFileCover').on('change' , function() {
+				let file = $('#mediaFileCover').val();
+			})
+
+</script>
 
 @endsection

@@ -20,16 +20,21 @@ Route::group([], function () {
     //View
     Route::get('/', 'viewController@index');
     Route::get('/home', 'viewController@index')->name('home');
-    Route::get('/jobs', 'viewController@jobs')->name('jobs');
-    Route::get('/jobs/{id}', 'viewController@job')->name('job');
+    Route::get('/majors', 'viewController@PublicMajors')->name('majors');
+    Route::get('/articles', 'viewController@publicArticles')->name('articles');
+    Route::get('/compare_majors', 'viewController@compare_majors')->name('compare_majors');
+    Route::get('/compare_majors/{id}', 'viewController@compare_major')->name('compare_major');
+    Route::get('/articles/{id}', 'viewController@Article')->name('articles');
+    Route::get('/majors/{id}', 'viewController@PublicMajor')->name('major');
+    Route::get('/success_story/{id}', 'viewController@success_story')->name('sstory');
+    Route::get('/article/{id}', 'viewController@publicArticle')->name('article');
     Route::get('/Companies', 'viewController@Companies')->name('Companies');
 
     Route::post('/report', 'ReportController@store')->name('report');
     Route::post('/contact', 'ContactController@store')->name('contact');
+    Route::get('/contact', 'ContactController@index2');
 
-    Route::get('/contact', function () {
-        return view('public.contact');
-    });
+
 
     Route::fallback(function () {
         return view("public.404");
@@ -43,25 +48,11 @@ Route::group([], function () {
 
     //View
     Route::get('/profile', 'viewController@myProfile')->name('profile');
-    Route::get('/trainees', 'viewController@trainees')->name('trainees');
     Route::get('/profile/{id}', 'viewController@profile')->name('profile');
     Route::get('/applications', 'viewController@CompanyApplications')->name('CompanyApplications');
 
-    //Applications
-    Route::post('/apply', 'ApplicationController@store')->name('apply');
-    Route::get('/application/delete/{id}', 'ApplicationController@destroy');
-    Route::PATCH('/application/{id}/update', 'ApplicationController@update');
-
-    //Jobs
-    Route::post('/position', 'PositionController@store');
-    Route::PATCH('/position/{id}/update', 'PositionController@update');
-    Route::get('/position/delete/{id}', 'PositionController@destroy');
-
     //Update profile
     Route::PATCH('/user/{id}/update', 'UserController@update');
-
-    //Download
-    Route::get('/download', 'DownloadController@cv')->name('download');
 });
 
 // admin
@@ -79,27 +70,48 @@ Route::prefix('/admin')->group(function () {
     //Users
     Route::get('/users', 'viewController@users');
     Route::PATCH('/user/{id}/update', 'UserController@update');
-    Route::post('/user/delete', 'UserController@destroy');
+    Route::post('/user/delete/{id}', 'UserController@destroy');
     Route::resource('/user', 'UserController');
 
-    //Positions
-    Route::get('/position/delete/{id}', 'PositionController@destroy');
-    Route::PATCH('/position/{id}/update', 'PositionController@update');
-    Route::get('/positions', 'viewController@positions');
-    Route::resource('/position', 'PositionController');
+    //manage
+    Route::PATCH('/manage/{id}/update', 'manageController@update');
+    Route::get('/manage/{id}/edit', 'manageController@edit');
 
+    //articles
+    Route::get('/articles', 'viewController@articles');
+    Route::PATCH('/article/{id}/update', 'articleController@update');
+    Route::get('/article/delete/{id}', 'articleController@destroy');
+    Route::resource('/article', 'articleController');
+
+    //uni_lives
+    Route::get('/uni_lives', 'viewController@uni_lives');
+    Route::PATCH('/uni_live/{id}/update', 'uni_liveController@update');
+    Route::get('/uni_live/delete/{id}', 'uni_liveController@destroy');
+    Route::resource('/uni_live', 'uni_liveController');
+
+    //sstories
+    Route::get('/success_stories', 'viewController@sstories');
+    Route::PATCH('/success_story/{id}/update', 'sstoryController@update');
+    Route::get('/success_story/delete/{id}', 'sstoryController@destroy');
+    Route::resource('/success_story', 'sstoryController');
+
+    //vs_majors
+    Route::get('/majors_vs_majors', 'viewController@vs_majors');
+    Route::PATCH('/major_vs_major/{id}/update', 'vs_majorController@update');
+    Route::get('/major_vs_major/delete/{id}', 'vs_majorController@destroy');
+    Route::resource('/major_vs_major', 'vs_majorController');
+
+    //colleges
+    Route::get('/colleges', 'viewController@colleges');
+    Route::PATCH('/college/{id}/update', 'collegeController@update');
+    Route::get('/college/delete/{id}', 'collegeController@destroy');
+    Route::resource('/college', 'collegeController');
 
     //Testimonials
     Route::get('/Testimonial/delete/{id}', 'TestimonialsController@destroy');
     Route::PATCH('/Testimonial/{id}/update', 'TestimonialsController@update');
     Route::get('/Testimonials', 'viewController@testimonials');
     Route::resource('/Testimonial', 'TestimonialsController');
-
-    //Applications
-    Route::get('/application/delete/{id}', 'ApplicationController@destroy');
-    Route::PATCH('/application/{id}/update', 'ApplicationController@update');
-    Route::get('/applications', 'viewController@applications');
-    Route::resource('/application', 'ApplicationController');
 
     //Reports
     Route::get('/reports', 'ReportController@index');

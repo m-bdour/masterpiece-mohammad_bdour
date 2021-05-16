@@ -35,11 +35,11 @@
 							<h3><i class="icon-feather-folder-plus"></i> Major Submission Form</h3>
 						</div>
 					
-					<form action="/admin/major" method="post" enctype="multipart/form-data">
+					<form action="/admin/major" id="addmajor" method="post" enctype="multipart/form-data">
 						{{ csrf_field() }}
 						<div class="content with-padding padding-bottom-10">
 							<div class="row">
-
+								{{-- name --}}
 								<div class="col-xl-4">
 									<div class="submit-field">
 										<h5>Major name</h5>
@@ -49,15 +49,140 @@
 									@endif
 									</div>
 								</div>
+								{{-- Ename --}}
 								<div class="col-xl-4">
 									<div class="submit-field">
-										<h5>Major College</h5>
-										<input type="text" class="with-border" name="College" value="{{ old('College') }}" >
-										@if ($errors->has('College'))
-										<div class="text-danger">{{ $errors->first('College') }}</div>
-									@endif
+										<h5>English name</h5>
+										<input type="text" class="with-border" name="Ename" value="{{ old('Ename') }}">
+										@if ($errors->has('Ename'))
+										<div class="text-danger">{{ $errors->first('Ename') }}</div>
+										@endif
 									</div>
 								</div>
+								{{-- college_id  --}}
+								<div class="col-xl-4">
+									<div class="submit-field">
+										<h5> major college</h5>
+										<select class="selectpicker with-border" id="majorSelect" data-live-search="true" name="college_id" data-size="4" value="{{ old('college_id') }}" title="Select major college">
+											<option disabled value='select major'>select major</option>
+											@foreach($colleges as $college)
+											<option class="batata" value={{$college->college_id}}>{{$college->name}}
+											</option>
+											@endforeach
+										</select>
+										@if ($errors->has('college_id'))
+										<div class="text-danger">{{ $errors->first('college_id') }}</div>
+										@endif
+									</div>
+								</div>								
+								{{--  Image --}}
+								<div class=" col-xl-4 addImage">
+									<div id="profile" class="image">
+									<div class="dashes"></div>
+									<label>add photo</label>
+									</div>
+									<p class="addProfile" > photo</p>
+									<input type="file" id="mediaFile" name="profile" class="mediaFile" />
+								</div>
+								{{-- cover Image --}}
+								<div class=" col-xl-4 addImage">
+									<div id="cover" class="image">
+									<div class="dashes"></div>
+									<label>add cover</label>
+									</div>
+									<p>cover image</p>
+									<input type="file" id="mediaFileCover" name="cover" class="mediaFile"  />
+								</div>
+								{{-- just a space --}}
+								<div class="col-xl-4">
+									<div class="submit-field">
+									</div>
+								</div>								
+								{{-- title --}}
+								<div class="col-xl-4">
+									<div class="submit-field">
+										<h5>title <i class="help-icon" data-tippy-placement="right" title="For SEO"></i></h5>
+										<input type="text" class="with-border" name="title" value="{{ old('title') }}">
+										@if ($errors->has('title'))
+										<div class="text-danger">{{ $errors->first('title') }}</div>
+										@endif
+									</div>
+								</div>
+								{{-- keywords --}}
+								<div class="col-xl-4">
+									<div class="submit-field">
+										<h5>keywords <i class="help-icon" data-tippy-placement="right" title="For SEO"></i></h5>
+										<div class="keywords-container">
+											<div class="keyword-input-container">
+												<input type="text" class="keyword-input with-border" placeholder="e.g. program, soft skill" />
+												<button class="keyword-input-button ripple-effect"><i class="icon-material-outline-add"></i></button>
+											</div>
+											<input type="hidden" id="hiddenInput" name="keywords" class="hiddenValue">
+											<p class="hiddenValue hiddenElement" id="skills"></p>
+											<div class="keywords-list">
+												<!-- keywords go here -->
+											</div>
+											<div class="clearfix"></div>
+										</div>
+
+									</div>
+								</div>
+								{{-- description  --}}
+								<div class="col-xl-12">
+									<div class="submit-field">
+										<h5>description <i class="help-icon" data-tippy-placement="right" title="For SEO"></i></h5>
+										<textarea name="description" class="tinymce"></textarea>
+									</div>
+								</div>
+								{{-- references  --}}
+								<div class="col-xl-12">
+									<div class="submit-field">
+										<h5>references</h5>
+										<textarea name="references" class="tinymce"></textarea>
+									</div>
+								</div>								
+								{{-- about  --}}
+								<div class="col-xl-12">
+									<div class="submit-field">
+										<h5>about</h5>
+										<textarea name="about" class="tinymce"></textarea>
+									</div>
+								</div>								
+								{{-- sectors  --}}
+								<div class="col-xl-12">
+									<div class="submit-field">
+										<h5>sectors</h5>
+										<textarea name="sectors" class="tinymce"></textarea>
+									</div>
+								</div>								
+								{{-- skills  --}}
+								<div class="col-xl-12">
+									<div class="submit-field">
+										<h5>skills</h5>
+										<textarea name="skills" class="tinymce"></textarea>
+									</div>
+								</div>								
+								{{-- courses  --}}
+								<div class="col-xl-12">
+									<div class="submit-field">
+										<h5>courses</h5>
+										<textarea name="courses" class="tinymce"></textarea>
+									</div>
+								</div>								
+								{{-- findJob  --}}
+								<div class="col-xl-12">
+									<div class="submit-field">
+										<h5>findJob</h5>
+										<textarea name="findJob" class="tinymce"></textarea>
+									</div>
+								</div>								
+								{{-- education  --}}
+								<div class="col-xl-12">
+									<div class="submit-field">
+										<h5>education</h5>
+										<textarea name="education" class="tinymce"></textarea>
+									</div>
+								</div>								
 
 							</div>
 						</div>
@@ -65,7 +190,7 @@
 				</div>
 
 				<div class="col-xl-12">
-					<button type="submit" class="button ripple-effect big margin-top-30"><i class="icon-feather-plus"></i> add</button>
+					<button type="submit" id="submitButton" class="button ripple-effect big margin-top-30 margin-bottom-30"><i class="icon-feather-plus"></i> add</button>
 				</div>
 			</form>
 
@@ -74,5 +199,25 @@
 
 		</div>
 	</div>
+
+	<script>
+		var submit = false;
+		$('#submitButton').on("click", function() {
+			submit = true;
+			document.getElementById("hiddenInput").value = document.getElementById("skills").innerText;
+	
+			$('#addmajor').submit();
+		});
+	
+		$('#addmajor').submit(function() {
+	
+			if (submit == false)
+				return false;
+			else
+				return true;
+		});
+	</script>
+
+
 
 @endsection

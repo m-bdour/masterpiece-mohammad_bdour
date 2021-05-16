@@ -44,17 +44,14 @@
 			<div class="contact-location-info margin-bottom-50">
 				<div class="contact-address">
 					<ul>
-						<li class="contact-address-headline">Our Office</li>
-						<li>425 Makka Street, Amman, Jordan</li>
-						<li>Phone +962 7 7898 2290</li>
-						<li><a href="#">info@qorrah.com</a></li>
+						{!! $manage->contactinfo !!}
 						<li>
 							<div class="freelancer-socials">
 								<ul>
-									<li><a href="//www.facebook.com/QorrahInitiative" title="facebook" data-tippy-placement="top"><i class="icon-brand-facebook"></i></a></li>
-									<li><a href="https://www.linkedin.com/company/cesterdad/" title="linkedin" data-tippy-placement="top"><i class="icon-brand-linkedin"></i></a></li>
-									<li><a href="//www.twitter.com/Cesterdad" title="Twitter" data-tippy-placement="top"><i class="icon-brand-twitter"></i></a></li>
-									<li><a href="//www.instagram.com/qorrahinitiative/" title="Instagram" data-tippy-placement="top"><i class="icon-brand-instagram"></i></a></li>
+									<li><a href="{{$manage->facebook}}" target="_blank" title="facebook" data-tippy-placement="top"><i class="icon-brand-facebook"></i></a></li>
+									<li><a href="{{$manage->linkedin}}"  target="_blank" title="linkedin" data-tippy-placement="top"><i class="icon-brand-linkedin"></i></a></li>
+									<li><a href="{{$manage->twitter}}"  target="_blank" title="Twitter" data-tippy-placement="top"><i class="icon-brand-twitter"></i></a></li>
+									<li><a href="{{$manage->instagram}}"  target="_blank" title="Instagram" data-tippy-placement="top"><i class="icon-brand-instagram"></i></a></li>
 								
 								</ul>
 							</div>

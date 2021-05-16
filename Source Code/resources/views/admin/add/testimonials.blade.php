@@ -62,7 +62,6 @@
 								{{-- just a space --}}
 								<div class="col-xl-4">
 									<div class="submit-field">
-
 									</div>
 								</div>
 								{{-- Profile Image --}}

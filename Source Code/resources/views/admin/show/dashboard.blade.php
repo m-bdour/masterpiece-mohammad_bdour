@@ -57,14 +57,6 @@
 					<div class="fun-fact-icon"><i class="icon-material-outline-rate-review"></i></div>
 				</div>				
 
-				{{-- positions --}}
-				<div class="fun-fact" data-fun-fact-color="#36bd78">
-					<div class="fun-fact-text">
-						<span>positions</span>
-						<h4>{{$positions}}</h4>
-					</div>
-					<div class="fun-fact-icon"><i class="icon-material-outline-business-center"></i></div>
-				</div>
 				{{-- majors --}}
 				<div class="fun-fact" data-fun-fact-color="#36bd78">
 					<div class="fun-fact-text">
@@ -72,14 +64,6 @@
 						<h4>{{$majors}}</h4>
 					</div>
 					<div class="fun-fact-icon"><i class="icon-material-outline-account-balance"></i></div>
-				</div>	
-				{{-- Applications --}}
-				<div class="fun-fact" data-fun-fact-color="#b81b7f">
-					<div class="fun-fact-text">
-						<span>Applications</span>
-						<h4>{{$applications}}</h4>
-					</div>
-					<div class="fun-fact-icon"><i class="icon-feather-book-open"></i></div>
 				</div>	
 				{{-- admins --}}
 				<div class="fun-fact" data-fun-fact-color="#b81b7f">

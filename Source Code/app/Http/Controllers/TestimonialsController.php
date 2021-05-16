@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Testimonial;
+use App\manage;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,7 +18,14 @@ class TestimonialsController extends Controller
      */
     public function index()
     {
-        return view('admin.add.testimonials');
+                $manages = manage::where("id" , '=' , '1')->get();
+        $manage = [];
+        foreach ($manages as $thismanage) {
+            $manage = $thismanage ;
+        }
+
+
+        return view('admin.add.testimonials' , compact( 'manage'));
     }
 
     /**
@@ -38,9 +46,15 @@ class TestimonialsController extends Controller
      */
     public function store(Request $request)
     {
+                $manages = manage::where("id" , '=' , '1')->get();
+        $manage = [];
+        foreach ($manages as $thismanage) {
+            $manage = $thismanage ;
+        }
+
 
         if (Auth::user()->type != 'admin') {
-            return view('public.403');
+            return view('public.403' , compact( 'manage'));
         }
 
         request()->validate([
@@ -86,16 +100,23 @@ class TestimonialsController extends Controller
      */
     public function edit($id)
     {
+                $manages = manage::where("id" , '=' , '1')->get();
+        $manage = [];
+        foreach ($manages as $thismanage) {
+            $manage = $thismanage ;
+        }
+
+
         if (!(Auth::check())) {
             return redirect('/login')->with('info', 'Login first!');
         }
         if (Auth::user()->type != 'admin') {
-            return view('public.403');
+            return view('public.403' , compact( 'manage'));
         }
 
         $Testimonial = Testimonial::find($id);
 
-        return view('admin.edit.Testimonial', compact('Testimonial'));
+        return view('admin.edit.Testimonial', compact('Testimonial' , 'manage'));
     }
 
     /**
@@ -107,10 +128,17 @@ class TestimonialsController extends Controller
      */
     public function update(Request $request, $id)
     {
+                $manages = manage::where("id" , '=' , '1')->get();
+        $manage = [];
+        foreach ($manages as $thismanage) {
+            $manage = $thismanage ;
+        }
+
+
         $testimonial = Testimonial::find($id);
 
         if (Auth::user()->type != 'admin') {
-            return view('public.403');
+            return view('public.403' , compact( 'manage'));
         }
 
         request()->validate([
@@ -143,12 +171,18 @@ class TestimonialsController extends Controller
      */
     public function destroy(Request $request)
     {
+                $manages = manage::where("id" , '=' , '1')->get();
+        $manage = [];
+        foreach ($manages as $thismanage) {
+            $manage = $thismanage ;
+        }
+
 
         if (!(Auth::check())) {
             return redirect('/login')->with('info', 'Login first!');
         }
         if (Auth::user()->type != 'admin') {
-            return view('public.403');
+            return view('public.403' , compact( 'manage'));
         }
 
         $testimonial = Testimonial::find($request->id);

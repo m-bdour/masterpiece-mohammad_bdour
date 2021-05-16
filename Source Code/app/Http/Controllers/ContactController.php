@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Contact;
+use App\manage;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -16,14 +18,30 @@ class ContactController extends Controller
      */
     public function index()
     {
+        $manages = manage::where("id" , '=' , '1')->get();
+        $manage = [];
+        foreach ($manages as $thismanage) {
+            $manage = $thismanage ;
+        }
+
+
         if (!(Auth::check())) {
             return redirect('/login')->with('info', 'Ligin first!');
         }
         if (Auth::user()->type != 'admin') {
-            return view('public.403');
+            return view('public.403' , compact( 'manage'));
         }
         $contacts = Contact::orderBy('created_at', 'desc')->get();
-        return view('admin.show.contacts', compact('contacts'));
+        return view('admin.show.contacts', compact('contacts' , 'manage'));
+    }
+    public function index2()
+    {
+        $manages = manage::where("id" , '=' , '1')->get();
+        $manage = [];
+        foreach ($manages as $thismanage) {
+            $manage = $thismanage ;
+        }
+        return view('public.contact', compact( 'manage'));
     }
 
     /**
@@ -112,13 +130,20 @@ class ContactController extends Controller
      */
     public function destroy(Request $request)
     {
+                $manages = manage::where("id" , '=' , '1')->get();
+        $manage = [];
+        foreach ($manages as $thismanage) {
+            $manage = $thismanage ;
+        }
+
+
         $Contact = DB::table('contacts')->where('id', $request->id);
 
         if (!(Auth::check())) {
             return redirect('/login')->with('info', 'Login first!');
         }
         if (Auth::user()->type != 'admin') {
-            return view('public.403');
+            return view('public.403' , compact( 'manage'));
         }
 
         $Contact->delete();

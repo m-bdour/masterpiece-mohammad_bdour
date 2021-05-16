@@ -17,12 +17,15 @@
     <link rel="stylesheet" href={{asset("assets/css/style.css")}} type="text/css">
     <link rel="stylesheet" href={{asset("assets/css/colors/purple.css")}} type="text/css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="icon" href={{asset("assets/images/logo.png")}}>
+
 
 
     <!-- Scripts
     ================================================== -->
     <script src={{asset("assets/js/jquery-3.3.1.min.js")}}></script>
     <script src={{asset("assets/js/jquery-migrate-3.0.0.min.js")}}></script>
+
 
 
 
@@ -61,14 +64,14 @@
 
                         <!-- Logo -->
                         <div id="logo">
-                            <a href="{{ url('/') }}"><img src={{asset("assets/images/logo.png")}} alt=""></a>
+                            <a href="{{ url('/') }}"><img src={{asset("assets/images/logo.png")}} alt="Qorrah"></a>
                         </div>
 
                         <!-- Main Navigation -->
                         <nav id="navigation">
                             <ul id="responsive">
 
-                                <li class="selfAlign"><a class="selfAlign" href="{{ url('/') }}" class="current">Home</a>
+                                <li class="selfAlign"><a class="selfAlign" href="{{ url('/') }}" class="current">الرئيسية</a>
                                 </li>
 
                                 @if ( Auth::user() && Auth::user()->type == 'admin')
@@ -82,8 +85,6 @@
                                             <ul>
                                                 <li><a href="/admin/users"> Users</a></li>
                                                 <li><a href="/admin/majors"> Majors</a></li>
-                                                <li><a href="/admin/positions"> Positions</a></li>
-                                                <li><a href="/admin/applications">applications</a></li>
                                                 <li><a href="/admin/Testimonials"> Testimonials</a></li>
                                                 <li><a href="/admin/reports"> Reports</a></li>
                                                 <li><a href="/admin/Contacts"> Contacts</a></li>
@@ -94,8 +95,6 @@
                                             <ul>
                                                 <li><a href="/admin/user"> User</a></li>
                                                 <li><a href="/admin/major"> Major</a></li>
-                                                <li><a href="/admin/position"> Position</a></li>
-                                                <li><a href="/admin/application"> application</a></li>
                                                 <li><a href="/admin/Testimonial"> Testimonial</a></li>
                                             </ul>
                                         </li>
@@ -103,18 +102,7 @@
                                     </ul>
                                 </li>
                                 @endif
-                                @if ( Auth::user() && (Auth::user()->type == 'company' || Auth::user()->type == 'admin' ))
-                                <li><a href="{{ url('/trainees') }}">trainees</a></li>
-                                <li><a href="{{ route('CompanyApplications') }}">Applications</a></li>
-                                @else
-                                <li><a href="{{ url('/jobs') }}">Find Job</a>
-                                    <ul class="dropdown-nav">
-                                        <li><a href="{{ url('/jobs') }}">jobs</a></li>
-                                        <li><a href="{{ url('/Companies') }}">Companies</a></li>
 
-                                    </ul>
-                                </li>
-                                @endif
 
                                 @if ( Auth::user())
 
@@ -122,7 +110,10 @@
 
                                 @endif
 
-                                <li><a href="{{ url('/contact') }}">Contact Us</a></li>
+                                <li><a href="{{ url('/majors') }}">التخصصات</a></li>
+                                <li><a href="{{ url('/contact') }}">تواصل معنا</a></li>
+                                <li><a href="{{ url('/articles') }}">مقالات</a></li>
+                                <li><a href="{{ url('/compare_majors') }}">مفارقات التخصصات</a></li>
                                 {{-- <li><a href="{{ url('#') }}">ِAbout Us#</a></li> --}}
 
 
@@ -141,8 +132,8 @@
 
 
                         <div class="signButtons">
-                            <a href="{{ route('login') }}" class="button ripple-effect ">Login</a>
-                            <a href="{{ route('register') }}" class="button ripple-effect">Register</a>
+                            {{-- <a href="{{ route('login') }}" class="button ripple-effect ">Login</a>
+                            <a href="{{ route('register') }}" class="button ripple-effect">Register</a> --}}
                         </div>
                         @else
 
@@ -256,22 +247,22 @@
                                         <div class="footer-row-inner">
                                             <ul class="footer-social-links">
                                                 <li>
-                                                    <a target="_blank" href="{{ url('//www.facebook.com/QorrahInitiative') }}" title="Facebook" data-tippy-placement="bottom" data-tippy-theme="light">
+                                                    <a target="_blank" href="{{ url("$manage->facebook") }}" title="Facebook" data-tippy-placement="bottom" data-tippy-theme="light">
                                                         <i class="icon-brand-facebook-f"></i>
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a target="_blank" href="{{ url('//www.twitter.com/Cesterdad') }}" title="Twitter" data-tippy-placement="bottom" data-tippy-theme="light">
+                                                    <a target="_blank" href="{{ url("$manage->twitter")  }}" title="Twitter" data-tippy-placement="bottom" data-tippy-theme="light">
                                                         <i class="icon-brand-twitter"></i>
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a target="_blank" href="{{ url('//www.instagram.com/qorrahinitiative/') }}" title="Instagram" data-tippy-placement="bottom" data-tippy-theme="light">
+                                                    <a target="_blank" href="{{ url("$manage->instagram")  }}" title="Instagram" data-tippy-placement="bottom" data-tippy-theme="light">
                                                         <i class="icon-brand-instagram"></i>
                                                     </a>
                                                 </li>
                                                 <li>
-                                                    <a target="_blank" href="{{ url('//www.linkedin.com/company/cesterdad/') }}" title="LinkedIn" data-tippy-placement="bottom" data-tippy-theme="light">
+                                                    <a target="_blank" href="{{ url("$manage->linkedin")  }}" title="LinkedIn" data-tippy-placement="bottom" data-tippy-theme="light">
                                                         <i class="icon-brand-linkedin-in"></i>
                                                     </a>
                                                 </li>
@@ -279,6 +270,8 @@
                                             <div class="clearfix"></div>
                                         </div>
                                     </div>
+                                    
+
 
                                     <!-- Language Switcher -->
                                     <div class="footer-row">
@@ -483,7 +476,7 @@
                             </div>
                         </div>
 
-                        <!-- Links -->
+                        {{-- <!-- Links -->
                         <div class="col-xl-2 col-lg-2 col-md-3">
                             <div class="footer-links">
                                 <h3>Account</h3>
@@ -500,12 +493,11 @@
 
                                 </ul>
                             </div>
-                        </div>
+                        </div> --}}
 
                         <!-- About -->
                         <div class="col-xl-4 col-lg-4 col-md-12">
-                            <h3></i>Qorrah For ​specialized training​</h3>
-                            <p>We match aspiring candidates with inspiring companies. </p>
+                            {!! $manage->homebottomdiscription !!}
                         </div>
                     </div>
                 </div>
@@ -517,7 +509,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-xl-12">
-                            © 2021 <strong>Qorrah</strong>. All Rights Reserved.
+                            © <?php echo date("Y"); ?> <strong>Qorrah</strong>. All Rights Reserved.
                         </div>
                     </div>
                 </div>
@@ -798,7 +790,6 @@
             }
         })
     </script>
-
 
 
     <!-- Google API & Maps -->

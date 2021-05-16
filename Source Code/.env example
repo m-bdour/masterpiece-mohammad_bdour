@@ -1,6 +1,6 @@
 APP_NAME=Qorrah
 APP_ENV=local
-APP_KEY=base64:
+APP_KEY=base64:fFF33bKvfgkvG6NJgyGoWpTBvIVcyE/CyN3z57+LCBs=
 APP_DEBUG=true
 APP_URL=http://localhost
 
@@ -9,7 +9,7 @@ LOG_CHANNEL=stack
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=onepiece
+DB_DATABASE=qorrah
 DB_USERNAME=root
 DB_PASSWORD=
 

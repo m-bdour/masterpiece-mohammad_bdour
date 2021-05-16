@@ -9,28 +9,19 @@
 <!-- Dashboard Content
 	================================================== -->
 
-	{{-- <div id="deletePopup" class="deletePopup">
-		<div class="notification error closeable " >
-			<p>write the name <span id="conmajorName" ></span> to confairm</p>
-			<input type="text" class="inputconmajorName" >
-			<button class="button red " disabled ><i class="icon-feather-trash-2"></i> Delete</button>
-		</div>
-	</div> --}}
-
-
 <div class="dashboard-content-container" data-simplebar>
 	<div class="dashboard-content-inner">
 
 		<!-- Dashboard Headline -->
 		<div class="dashboard-headline">
-			<h3>Manage users</h3>
+			<h3>Manage majors</h3>
 
 			<!-- Breadcrumbs -->
 			<nav id="breadcrumbs" class="dark">
 				<ul>
 					<li><a href="/">Home</a></li>
 					<li><a href="{{"/admin/dashboard"}}">Dashboard</a></li>
-					<li>Manage users</li>
+					<li>Manage majors</li>
 				</ul>
 			</nav>
 		</div>
@@ -57,8 +48,8 @@
 
 							<tr>
 								<th>major_id </th>
-								<th>College</th>
-								<th>major</th>
+								<th>name</th>
+								<th>الاسم</th>
 								<th  >Delete | Edit</th>
 
 							</tr>
@@ -66,33 +57,28 @@
 
 							<tr class="Element">
 								<td>{{$major->major_id }}</td>
-								<td class="majorCut" >{{$major->College }}</td>
-								<td class="majorName">{{$major->major }} name</td>
+								<td class="majorEname" >{{$major->Ename }}</td>
+								<td class="majorName">{{$major->major }}</td>
 								<td class="tableBotton" >
 									<div class="cardButtons flexStart" >
-										<button class="button red ripple-effect toggelDelete" value="{{$major->major_id}}"><i class="icon-feather-trash-2"></i> Delete</button>
+
+										<a href=".{{$major->major_id }}" class=" button popup-with-zoom-anim red ripple-effect " ><i class="icon-feather-trash-2"></i> Delete</a>
+
+										<div id="small-dialog-1" class=" {{$major->major_id }} small-dialog zoom-anim-dialog mfp-hide dialog-with-tabs popupForm">
+						
+											<!--Tabs -->
+										
+												<div class="notification error closeable" style="height: 15rem">
+													<p style="font-size: 1.3rem" >Are you sure you want to delete this major?</p>
+													<p style="font-size: 1rem" >All its Reference and success stories will be deleted too!</p>
+														<form style="width: 120px; float:right" action="{{'/admin/major/delete/'. $major->major_id}}" method="get" >
+															<button type="submit" class="button red ripple-effect" ><i class="icon-feather-trash-2"></i> confirm</button>
+														</form>
+												</div>
+										</div>
 										<form method="GET" >
 											<button formaction="/admin/major/{{$major->major_id }}/edit" class="button gray ripple-effect "><i class="icon-feather-edit"></i> Edit</button>
 										</form>
-									</div>
-									<div class=" js-accordion">
-										<!-- Accordion Item -->
-										<div class="js-accordion-item">
-											<div class="js-accordion-header fit-content hiddenElement " style="float: right ; display : inline"><button id="{{$major->major_id}}" class="button red ripple-effect deleteClick" style="float: right ; display : inline" ><i class="icon-feather-trash-2"></i> Delete</button></div>
-		
-											<!-- Accordtion Body -->
-											<div class="accordion-body js-accordion-body" style=" padding-top: 0px; margin-top: 0px; padding-bottom: 0px; margin-bottom: 0px; display: none;" >
-												<div class="notification error closeable">
-													<p>Are you sure you want to delete this application?</p>
-														<form action="{{'/admin/major/delete/'. $major->major_id }}" method="get" >
-															<button type="submit" class="button red ripple-effect"><i class="icon-feather-trash-2"></i> confirm</button>
-														</form>
-												</div>
-											</div>
-											<!-- Accordion Body / End -->
-										</div>
-										<!-- Accordion Item / End -->
-		
 									</div>
 								</td>
 
@@ -117,8 +103,9 @@
 		var counter = 0 ;
 		 $(".Element").map(function() {
 			let text = $(this).find('.majorName').text().toLowerCase();
+			let text2 = $(this).find('.majorEname').text().toLowerCase();
 			let searchText = $(".majorSearch").val().toLowerCase();
-			if ((text).search(searchText) < 0) {
+			if ((text).search(searchText) < 0 && (text2).search(searchText) < 0) {
 
 				$(this).addClass('hideElement')
 			} else {

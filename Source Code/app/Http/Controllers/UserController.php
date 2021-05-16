@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Major;
 use App\User;
+use App\manage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -19,17 +20,23 @@ class UserController extends Controller
      */
     public function index()
     {
+                $manages = manage::where("id" , '=' , '1')->get();
+        $manage = [];
+        foreach ($manages as $thismanage) {
+            $manage = $thismanage ;
+        }
+
 
         if (!(Auth::check())) {
             return redirect('/login')->with('info', 'Login first!');
         }
         if (Auth::user()->type != 'admin') {
-            return view('public.403');
+            return view('public.403' , compact( 'manage'));
         }
 
         $majors = Major::all();
 
-        return view('admin.add.users', compact('majors'));
+        return view('admin.add.users', compact('majors' , 'manage'));
     }
 
     /**
@@ -50,12 +57,18 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+                $manages = manage::where("id" , '=' , '1')->get();
+        $manage = [];
+        foreach ($manages as $thismanage) {
+            $manage = $thismanage ;
+        }
+
 
         if (!(Auth::check())) {
             return redirect('/login')->with('info', 'Login first!');
         }
         if (Auth::user()->type != 'admin') {
-            return view('public.403');
+            return view('public.403' , compact( 'manage'));
         }
 
         request()->validate([
@@ -109,9 +122,9 @@ class UserController extends Controller
         $user->cv = $cvName;
         $user->coverImage = $coverImage;
         $user->image = $image;
-        $user->save();
+        // $user->save();
 
-        return redirect('/admin/user')->with('success', 'User created successfully.');
+        // return redirect('/admin/user')->with('success', 'User created successfully.');
     }
 
     /**
@@ -133,12 +146,18 @@ class UserController extends Controller
      */
     public function edit($id)
     {
+                $manages = manage::where("id" , '=' , '1')->get();
+        $manage = [];
+        foreach ($manages as $thismanage) {
+            $manage = $thismanage ;
+        }
+
 
         if (!(Auth::check())) {
             return redirect('/login')->with('info', 'Login first!');
         }
         if (Auth::user()->type != 'admin' && Auth::id() != $id) {
-            return view('public.403');
+            return view('public.403' , compact( 'manage'));
         }
 
         $user = User::find($id);
@@ -146,7 +165,7 @@ class UserController extends Controller
         $userSkills = explode(',', $user['skills']);
         $cities = ['Amman', 'Irbid', 'Zarqa', 'Ajloun', 'Jerash', 'Salt', 'Mafraq', 'Karak', "Maan", 'Madaba', 'Tafilah', 'Aqaba'];
         $userTypes = ['user', 'admin', 'company', 'RequestCompany'];
-        return view('admin.edit.users', compact('user', 'majors', 'cities', 'userTypes', 'userSkills'));
+        return view('admin.edit.users', compact('user' , 'manage', 'majors', 'cities', 'userTypes', 'userSkills'));
     }
 
     /**
@@ -158,6 +177,12 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
+                $manages = manage::where("id" , '=' , '1')->get();
+        $manage = [];
+        foreach ($manages as $thismanage) {
+            $manage = $thismanage ;
+        }
+
 
         $user = User::find($id);
 
@@ -165,7 +190,7 @@ class UserController extends Controller
             return redirect('/login')->with('info', 'Login first!');
         }
         if (Auth::user()->type != 'admin' && Auth::id() != $id) {
-            return view('public.403');
+            return view('public.403', compact( 'manage'));
         }
 
         if ($request->input('email') != $user->email) {
@@ -242,12 +267,18 @@ class UserController extends Controller
      */
     public function destroy(Request $request)
     {
+                $manages = manage::where("id" , '=' , '1')->get();
+        $manage = [];
+        foreach ($manages as $thismanage) {
+            $manage = $thismanage ;
+        }
+
 
         if (!(Auth::id())) {
             return redirect('/login')->with('info', 'Login first!');
         }
         if (Auth::user()->type != 'admin') {
-            return view('public.403');
+            return view('public.403', compact( 'manage'));
         }
 
         $user = User::find($request->id);

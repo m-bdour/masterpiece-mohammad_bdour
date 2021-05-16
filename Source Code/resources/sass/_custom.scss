@@ -20,7 +20,10 @@
     align-items: center;
     justify-content: space-between;
 }
-
+.arabic {
+    direction: rtl !important;
+    text-align: right !important;
+}
 .deletePopup {
     // opacity: 0;
     // display: none;
